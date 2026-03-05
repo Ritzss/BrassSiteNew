@@ -8,7 +8,7 @@ const Navbar = () => {
     <div
       className={`lg:px-14 flex justify-center items-center gap-4 dark:bg-[#f4f2dd] dark:text-black text-white h-25`}
     >
-      <span className="relative lg:p-2 font-extrabold border md:w-15 md:h-7 lg:w-30 lg:h-10">
+      <span className="relative flex justify-center lg:p-2 font-extrabold border md:w-15 md:h-7 lg:w-30 lg:h-10">
         <div className="absolute">Logo</div>
       </span>
       <span className="lg:flex-1">

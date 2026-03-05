@@ -24,3 +24,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.head-font {
+  /* Pure Brass Bottle */
+  width: 376px;
+  height: 154px;
+  font-family: "Inria Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 77px;
+}
+
+.descrip-font {
+  /* Experience the ancient wisdom of Ayurveda with our handcrafted brass water bottle. Designed to naturally alkalize and purify your water while supporting your wellness journey. */
+  height: 116px;
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.static-content{
+  /* "Designed to support natural hydration while reducing everyday waste." */
+
+width: 583px;
+height: 76px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 31.7468px;
+line-height: 38px;
+color: #889551;
+text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Capacity : 1000ml */
+.inter{
+font-family: 'Inter';
+}
+
