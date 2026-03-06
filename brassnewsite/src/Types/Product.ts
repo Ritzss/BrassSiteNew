@@ -13,9 +13,11 @@ type Details = {
   finish: string;
   design: string;
   care: string[];
+  sustainability:string;
 };
 
 export type Product = {
+  Productid?:string;
   name?: string;
   description?: string;
   category: string;

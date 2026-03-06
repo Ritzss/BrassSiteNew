@@ -23,6 +23,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
 }
 
 .head-font {
@@ -56,7 +57,6 @@ font-style: normal;
 font-weight: 400;
 font-size: 31.7468px;
 line-height: 38px;
-color: #889551;
 text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
 
 }
@@ -65,4 +65,3 @@ text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
 .inter{
 font-family: 'Inter';
 }
-
