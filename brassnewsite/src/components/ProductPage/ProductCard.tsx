@@ -16,7 +16,7 @@ const ProductCard = ({product}:{product?:Product[]}) => {
             <div className="px-3 pt-2 font-semibold">{prod.name}</div>
             <div className="p-2 w-70 line-clamp-">{prod.D_discription?.substring(0, 50)}...See More</div>
             <div className="flex py-3 justify-around">
-              <button onClick={handleAddtoCart} className="cursor-pointer text-xl bg-[#889551] shadow-[0_3px_10px_#000000] text-white rounded-full p-3 text-center ">
+              <button onClick={handleAddtoCart} className="cursor-pointer text-xl bg-[#889551] hover:shadow-[0_2px_5px_#000000af] text-white rounded-full p-3 text-center ">
               Add to Cart
             </button>
             <div className="w-[40%] text-center text-[#889551] relative">

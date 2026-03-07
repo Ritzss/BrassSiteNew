@@ -65,7 +65,7 @@ const MobileNavbar = () => {
         ></div>
       </span>
       {menu && (
-        <div className="cursor-pointer dark:text-[#889551] absolute bottom-0 top-20 bg-white w-full">
+        <div className="cursor-pointer dark:text-[#889551] absolute bottom-0 top-20 z-2 bg-white w-full">
           <div className="border-b m-2">Home</div>
           <div className="border-b m-2">Products</div>
           <div className="border-b m-2">Cart</div>

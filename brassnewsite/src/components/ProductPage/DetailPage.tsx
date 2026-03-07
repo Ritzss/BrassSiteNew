@@ -13,6 +13,8 @@ import {
 } from "react-icons/io";
 import { toast } from "sonner";
 import ProductCard from "./ProductCard";
+// import CurvedCarousel from "../UI/CurvedCarousel";
+import PipeSection from "../UI/CurvedCarousel";
 
 const DetailPage = ({
   product,
@@ -47,7 +49,7 @@ const DetailPage = ({
   return (
     <main className="flex-col flex gap-15">
       {/* BREADCRUMB */}
-      <nav className="cursor-default flex px-5 text-xl bg-white h-15">
+      <nav className="cursor-default flex px-2 md:px-5 md:text-xl bg-white h-15">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
             <Link href="/" className="hover:text-black transition">
@@ -91,7 +93,7 @@ const DetailPage = ({
         {/* LEFT SIDE */}
         <div className="cursor-default flex flex-col">
           {/* IMAGE SLIDER */}
-          <div className="relative md:self-center w-137.5 overflow-hidden">
+          <div className="hidden md:block relative md:self-center w-137.5 mx-auto overflow-hidden">
             <div
               className="flex transition-transform duration-300"
               style={{ transform: `translateX(-${currentImage * 550}px)` }}
@@ -113,14 +115,47 @@ const DetailPage = ({
               className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={prevImage}
             >
-              <IoIosArrowBack size={48} color="#889551" />
+              <IoIosArrowBack  className="scale-x-300 w-[3vw]" size={48} color="#889551" />
             </div>
 
             <div
               className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={nextImage}
             >
-              <IoIosArrowForward size={48} color="#889551" />
+              <IoIosArrowForward className="scale-x-300 w-[3vw]"  size={48} color="#889551" />
+            </div>
+          </div>
+          {/* Mobile Image Slider */}
+          <div className="block md:hidden relative md:self-center w-[320px] mx-auto overflow-hidden">
+            <div
+              className="flex transition-transform duration-300"
+              style={{ transform: `translateX(-${currentImage * 320}px)` }}
+            >
+              {images.map((src, ind) => (
+                <Image
+                  key={ind}
+                  src={src}
+                  alt=""
+                  width={320}
+                  height={878}
+                  className="rounded-2xl shrink-0"
+                />
+              ))}
+            </div>
+
+            {/* ARROWS */}
+            <div
+              className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer"
+              onClick={prevImage}
+            >
+              <IoIosArrowBack  className="scale-x-300 w-[4vw]" size={48} color="#889551" />
+            </div>
+
+            <div
+              className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
+              onClick={nextImage}
+            >
+              <IoIosArrowForward className="scale-x-300 w-[4vw]"  size={48} color="#889551" />
             </div>
           </div>
 
@@ -133,7 +168,7 @@ const DetailPage = ({
                 className={`h-3 w-3 rounded-full cursor-pointer ${
                   ind === currentImage
                     ? "bg-[#889551] dark:bg-[#e4e198]"
-                    : "bg-[#f4f2dd]"
+                    : "bg-[#e4e198] dark:bg-[#f4f2dd]"
                 }`}
               />
             ))}
@@ -142,7 +177,7 @@ const DetailPage = ({
 
         {/* RIGHT SIDE */}
         <div className="cursor-default dark:text-[#f4f2dd] flex-1 flex-col flex gap-5 p-10">
-          <div className="head-font text-8xl font-">{product?.name}</div>
+          <div className="head-font w-60 md:w-94 text-[2rem] md:text-[4rem]">{product?.name}</div>
           <div className="text-3xl descrip-font">{product?.description}</div>
           <div className="flex text-2xl gap-1">
             <div className="inter">Capacity:</div>
@@ -172,13 +207,13 @@ const DetailPage = ({
           <div className="mt-5 flex gap-4">
             <button
               onClick={handleAddtoCart}
-              className="cursor-pointer text-2xl bg-[#889551] dark:bg-[#e4e198] shadow-[0_3px_10px_#000000] lg:hover:shadow-[0_0_0] lg:hover:translate-y-1 transition-all duration-300 text-white rounded-full p-5 text-center w-full"
+              className="cursor-pointer text-xl md:text-2xl bg-[#889551] dark:bg-[#e4e198] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-white rounded-full py-4 md:p-5 text-center w-full"
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="cursor-pointer text-2xl bg-[#f4f2dd] shadow-[0_3px_10px_#000000] lg:hover:shadow-[0_0_0] lg:hover:translate-y-1 transition-all duration-300 text-[#889551] rounded-full p-5 text-center w-full"
+              className="cursor-pointer text-xl md:text-2xl bg-[#f4f2dd] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-[#889551] rounded-full py-4 md:p-5 text-center w-full"
             >
               Buy Now
             </button>
@@ -220,16 +255,16 @@ const DetailPage = ({
       {/* Static Data */}
 
       {/* Quote */}
-      <div className="cursor-default dark:text-[#fdf2dd] text-[#889551] static-content mx-auto flex justify-center text-3xl">
+      <div className="text-center cursor-default dark:text-[#fdf2dd] text-[#889551] static-content w-full lg:w-[56%] mx-auto flex justify-center">
         &quot;Designed to support natural hydration while reducing everyday
         waste.&quot;
       </div>
 
       {/* Health & Wellness */}
       <div className="cursor-default dark:text-[#fdf2dd] flex-col flex items-center">
-        <div className="text-7xl inter">Health & Wellness Benefits</div>
-        <div className="rounded-2xl shadow-[0_7px_10px_#000000af] m-2 p-8 flex justify-center flex-wrap gap-3 w-[85%] bg-[#e4e198]">
-          <div className="w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
+        <div className="md:text-7xl text-3xl inter text-center">Health & Wellness Benefits</div>
+        <div className="rounded-2xl shadow-[0_4px_10px_#000000af] m-2 p-8 flex justify-center flex-wrap gap-3 w-[85%] bg-[#e4e198]">
+          <div className="lg:w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
             <Image
               src={"/Assets/Icons/plant.png"}
               alt=""
@@ -237,13 +272,13 @@ const DetailPage = ({
               height={40}
             />
             <div className={`text-[#889551] text-lg`}>
-              Supports Better Digestion
+              Supports Better Digestion Process
             </div>
-            <div className="text-[#00000090] font-light pl-12">
+            <div className="text-[#00000090] font-light lg:pl-12">
               Naturally infused water may aid the digestive process
             </div>
           </div>
-          <div className="w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
+          <div className="lg:w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
             <Image
               src={"/Assets/Icons/antibacterial.png"}
               alt=""
@@ -254,11 +289,11 @@ const DetailPage = ({
               {" "}
               Naturally Antibacterial Properties
             </div>
-            <div className="text-[#00000090] font-light pl-12">
+            <div className="text-[#00000090] font-light lg:pl-12">
               Brass has inherent antimicrobial properties
             </div>
           </div>
-          <div className="w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
+          <div className="lg:w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
             <Image
               src={"/Assets/Icons/drop.png"}
               alt=""
@@ -268,11 +303,11 @@ const DetailPage = ({
             <div className={`text-[#889551] text-lg`}>
               Helps Maintain Water Freshness
             </div>
-            <div className="text-[#00000090] font-light pl-12">
+            <div className="text-[#00000090] font-light lg:pl-12">
               Natural properties keep water pure and clean
             </div>
           </div>
-          <div className="w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
+          <div className="lg:w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
             <Image
               src={"/Assets/Icons/ecology.png"}
               alt=""
@@ -282,7 +317,7 @@ const DetailPage = ({
             <div className={`text-[#889551] text-lg`}>
               Rooted in Traditional Wellness Practices
             </div>
-            <div className="text-[#00000090] font-light pl-12">
+            <div className="text-[#00000090] font-light lg:pl-12">
               Inspired by ancient Ayurvedic wisdom
             </div>
           </div>
@@ -290,22 +325,22 @@ const DetailPage = ({
       </div>
 
       {/* Why Brass? */}
-      <div className="cursor-default inter flex justify-center mx-auto w-[85%]">
-        <div className="flex flex-col w-[80%]">
+      <div className="cursor-default inter flex flex-col lg:flex-row justify-center mx-auto w-[85%]">
+        <div className="flex flex-col lg:w-[80%]">
           <div className="text-5xl text-[#889551] dark:text-[#fdf2dd] h-fit w-full">
             Why Brass ?
           </div>
           <div className="px-4 flex items-center w-full">
-            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-[85%]"></div>
-            <div className="p-3 h-full text-3xl text-[#000000af] dark:text-[#fdf2dd]">
+            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-40 md:h-30 lg:h-[85%]"></div>
+            <div className="p-3 h-full text-2xl md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
               Brass is a natural copper-zinc alloy that has been used in
               traditional wellness practices for thousands of years, valued for
               its unique mineral properties.
             </div>
           </div>
           <div className="px-4 flex items-center w-full">
-            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-[85%]"></div>
-            <div className="p-3 h-full text-3xl text-[#000000af] dark:text-[#fdf2dd]">
+            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-40 md:h-30 lg:h-[85%]"></div>
+            <div className="p-3 h-full text-2xl md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
               Storing water in brass vessels is rooted in Ayurvedic traditions,
               where the subtle interactions between water and metal are believed
               to support balance and vitality.
@@ -318,18 +353,18 @@ const DetailPage = ({
             alt=""
             width={310}
             height={353}
-            className="rounded-4xl shadow-[inset_0_0_20px_#889551]"
+            className="hidden lg:block"
           />
         </div>
       </div>
 
       {/* Product Details */}
       <div className="cursor-default w-[85%] mx-auto">
-        <div className=" text-6xl dark:text-[#fdf2dd] text-center inter">
+        <div className="md:text-6xl text-3xl dark:text-[#fdf2dd] text-center inter">
           Product Details
         </div>
-        <div className=" flex justify-center">
-          <div className="inter bg-[#e4e198] shadow-[0_10px_15px_#000000af] rounded-4xl w-[48%] m-2 p-8">
+        <div className="flex flex-col lg:flex-row  lg:justify-center">
+          <div className="inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] rounded-4xl w-full lg:w-[48%] my-2 md:m-2 p-8">
             <div className="text-5xl mb-5 text-[#889551] flex justify-between">
               Specifications
             </div>
@@ -358,7 +393,7 @@ const DetailPage = ({
               <div>{product?.details?.sustainability}</div>
             </div>
           </div>
-          <div className="bg-[#e4e198] inter py-8 shadow-[0_10px_15px_#000000af] rounded-4xl w-[48%] m-2 p-4">
+          <div className="bg-[#e4e198] inter py-8 shadow-[0_4px_10px_#000000af] rounded-4xl w-full lg:w-[48%] my-2 md:m-2 p-4">
             <div className="text-5xl mb-5 text-[#889551]">Key Features</div>
             <div className="">
               {product?.details?.features.map((feat, ind) => {
@@ -379,11 +414,11 @@ const DetailPage = ({
 
       {/* Care Instructions*/}
       <div
-        className="shadow-[0_10px_15px_#000000af] inter rounded-2xl w-[80%] mx-auto bg-[#e4e198]"
+        className=" shadow-[0_4px_10px_#000000af] inter rounded-2xl w-[80%] mx-auto bg-[#e4e198]"
         onClick={() => setShowCare(!showCare)}
       >
         <div className="cursor-pointer flex items-center justify-between p-5 text-2xl">
-          <div>Care Instructions</div>
+          <div className={``}>Care Instructions</div>
           <div className={`${showCare? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}>
             <IoIosArrowDown />
           </div>
@@ -408,13 +443,13 @@ const DetailPage = ({
       {/* Sustainability & Eco Impact */}
       <div>
         <div className="inter flex dark:text-[#fdf2dd] flex-col items-center gap-4 w-[85%] mx-auto">
-          <div className="text-center text-6xl">
+          <div className="text-center md:text-6xl text-3xl">
             Sustainability & Eco Impact
           </div>
-          <div className="text-4xl font-light">
+          <div className="md:text-6xl text-xl font-light">
             Every conscious choice contributes to a healthier planet.
           </div>
-          <div className="text-4xl dark:bg-[#e4e198] dark:text-black rounded-tl-[70px] rounded-br-[70px] rounded-lg text-white bg-[#889551] border p-6 text-center">
+          <div className="text-2xl lg:text-4xl dark:bg-[#e4e198] dark:text-black rounded-tl-[30px] lg:rounded-tl-[70px] rounded-br-[30px] lg:rounded-br-[70px] rounded-lg text-white bg-[#889551] p-6 text-center">
             Choosing a brass bottle means choosing to reduce waste, honor
             tradition, and invest in a product that serves you and the Earth for
             years to come.
@@ -425,7 +460,7 @@ const DetailPage = ({
       {/* Similar Products */}
       <div className="mx-auto w-[85%] dark:text-[#fdf2dd] text-[#000000]">
         <div className="text-2xl px-3">You May Also Like</div>
-        <div className="flex shrink-0 overflow-x-auto">
+        <div className="flex shrink-0 overflow-x-auto no-scrollbar">
           {similarProduct
             ?.filter((prod) => prod.category == product?.category)
             .map((prod, ind) => (
@@ -433,6 +468,9 @@ const DetailPage = ({
             ))}
         </div>
       </div>
+
+      {/* test */}
+      <PipeSection />
     </main>
   );
 };

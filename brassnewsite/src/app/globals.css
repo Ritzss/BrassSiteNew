@@ -28,18 +28,18 @@ body {
 
 .head-font {
   /* Pure Brass Bottle */
-  width: 376px;
-  height: 154px;
+  /* width: 376px; */
+  /* height: 154px; */
   font-family: "Inria Serif";
   font-style: normal;
   font-weight: 400;
-  font-size: 64px;
+  /* font-size: 64px; */
   line-height: 77px;
 }
 
 .descrip-font {
   /* Experience the ancient wisdom of Ayurveda with our handcrafted brass water bottle. Designed to naturally alkalize and purify your water while supporting your wellness journey. */
-  height: 116px;
+  /* height: 116px; */
   font-family: "Inter Tight";
   font-style: normal;
   font-weight: 200;
@@ -50,7 +50,6 @@ body {
 .static-content{
   /* "Designed to support natural hydration while reducing everyday waste." */
 
-width: 583px;
 height: 76px;
 font-family: 'Inter';
 font-style: normal;
@@ -61,7 +60,53 @@ text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
 
 }
 
+/* @media (max-width:425px) {
+  .static-content{
+    width: 425px;
+  }
+} */
+
 /* Capacity : 1000ml */
 .inter{
 font-family: 'Inter';
+}
+
+.pipeContainer{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+
+.pipeContent{
+  width:100%;
+  height:100%;
+  clip-path:url(#pipeClip);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+
+.slider{
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation: slide 25s linear infinite;
+}
+
+.slider:hover,.slider:active{
+  animation-play-state: paused;
+}
+
+.pipeItem{
+  flex-shrink:0;
+  /* border-radius: 10%; */
+}
+
+@keyframes slide{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
 }

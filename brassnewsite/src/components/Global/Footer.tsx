@@ -54,7 +54,7 @@ const Footer = () => {
     <footer className="min-h-[50vh] cursor-default mt-50 bg-[#889551] dark:bg-[#e4e198] ">
       <div className="h-90 w-[90%] mx-auto flex justify-between text-[#f4f2dd] dark:text-[#889551]">
         {/* Information */}
-        <div className="w-[28%]">
+        <div className="md:w-[28%]">
           {Information.map((item, ind) => {
             return (
               <div
@@ -67,7 +67,7 @@ const Footer = () => {
           })}
         </div>
         {/* Customer Care */}
-        <div className="w-[28%]">
+        <div className="md:w-[28%]">
           {customerCare.map((item, ind) => {
             return (
               <div
@@ -93,7 +93,7 @@ const Footer = () => {
           );
         })}
       </div>
-      <div className="flex w-[90%] mx-auto justify-center text-xl border-t-3 text-[#f4f2dd] dark:text-[#889551]">
+      <div className="flex w-[90%] text-center mx-auto justify-center text-xl border-t-3 text-[#f4f2dd] dark:text-[#889551]">
         &copy; 2026 &quot;BrandName&quot; . All rights reserved.
       </div>
     </footer>
