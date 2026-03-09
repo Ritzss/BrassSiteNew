@@ -93,7 +93,7 @@ const DetailPage = ({
         {/* LEFT SIDE */}
         <div className="cursor-default flex flex-col">
           {/* IMAGE SLIDER */}
-          <div className="hidden md:block relative md:self-center w-137.5 mx-auto overflow-hidden">
+          <div className="hidden md:block dark:shadow-[7px_3px_5px_#e4e198] rounded-3xl rounded-t-[45px] relative md:self-center w-137.5 mx-auto overflow-hidden">
             <div
               className="flex transition-transform duration-300"
               style={{ transform: `translateX(-${currentImage * 550}px)` }}
@@ -115,14 +115,14 @@ const DetailPage = ({
               className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={prevImage}
             >
-              <IoIosArrowBack  className="scale-x-300 w-[3vw]" size={48} color="#889551" />
+              <IoIosArrowBack className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]" size={48} color="#889551" />
             </div>
 
             <div
               className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={nextImage}
             >
-              <IoIosArrowForward className="scale-x-300 w-[3vw]"  size={48} color="#889551" />
+              <IoIosArrowForward className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]"  size={48} color="#889551" />
             </div>
           </div>
           {/* Mobile Image Slider */}
@@ -177,7 +177,7 @@ const DetailPage = ({
 
         {/* RIGHT SIDE */}
         <div className="cursor-default dark:text-[#f4f2dd] flex-1 flex-col flex gap-5 p-10">
-          <div className="head-font w-60 md:w-94 text-[2rem] md:text-[4rem]">{product?.name}</div>
+          <div className="head-font w-60 md:w-94 text-[2rem] dark:text-shadow-[4px_0_1px_#000000] md:text-[4rem]">{product?.name}</div>
           <div className="text-3xl descrip-font">{product?.description}</div>
           <div className="flex text-2xl gap-1">
             <div className="inter">Capacity:</div>
@@ -463,8 +463,8 @@ const DetailPage = ({
         <div className="flex shrink-0 overflow-x-auto no-scrollbar">
           {similarProduct
             ?.filter((prod) => prod.category == product?.category)
-            .map((prod, ind) => (
-              <ProductCard key={`${prod.name}-${ind}`} product={[prod]} />
+            .map((prod) => (
+              <ProductCard key={`${prod.Productid}`} product={prod} />
             ))}
         </div>
       </div>

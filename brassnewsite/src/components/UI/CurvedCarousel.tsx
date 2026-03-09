@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PipeSection({items}:{items?:string[]}) {
   items = [
@@ -12,12 +13,12 @@ export default function PipeSection({items}:{items?:string[]}) {
     <div className="pipeContainer">
       <svg width="0" height="0">
         <clipPath id="pipeClip" clipPathUnits="objectBoundingBox">
-          <path d=" M0,0 C0.25,0.1 0.75,0.1 1,0 L1,1 C0.75,0.9 0.25,0.9 0,1 Z" />
+          <path d=" M0,0 C0.25,0.20 0.75,0.20 1,0 L1,1 C0.75,0.75 0.25,0.75 0,1 Z" />
         </clipPath>
       </svg>
 
       <div className="pipeContent">
-        <div className="slider">
+        <Link href={`/`} className="slider">
           {[...items, ...items, ...items].map((item, i) => (
             <Image
               key={i}
@@ -28,7 +29,7 @@ export default function PipeSection({items}:{items?:string[]}) {
               className="pipeItem"
             />
           ))}
-        </div>
+        </Link>
       </div>
     </div>
   );
