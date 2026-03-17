@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const variant = product?.variants?.[0];
 
   return (
-    <div className="cursor-default p-4">
+    <div className="cursor-default p-4 inter text-white">
       <Link
         href={`/productsdetail/${product.Productid}`}
         className="overflow-hidden rounded-t-3xl rounded-lg bg-[#e4e198] block"
@@ -21,13 +21,14 @@ const ProductCard = ({ product }: { product: Product }) => {
           alt=""
           width={300}
           height={300}
-          className="h-[346px]  overflow-hidden"
+          className="h-86.5 overflow-hidden"
         />
 
-        <div className="px-3 pt-2 font-semibold">{product.name}</div>
+        <div className="px-3 text-xl pt-2 font-semibold">{product.name}</div>
 
-        <div className="p-2 w-70">
-          {product.D_discription?.substring(0, 50)}...See More
+        <div className="p-2 text-white group">
+          {product.details?.features?.[0]}...
+          <span className="text-xs group-hover:text-[#889551] group-hover:underline transition-colors duration-500">See More</span>
         </div>
 
         <div className="flex py-3 justify-around">

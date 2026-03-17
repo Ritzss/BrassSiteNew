@@ -199,22 +199,23 @@ const similarProduct3 = {
   ],
   details: {
     features: [
-      "Dual Metal Construction",
-      "Ayurvedic Water Storage",
-      "Leak-Proof Cap",
-      "Handcrafted Finish",
-      "Premium Wellness Bottle",
+      "Handcrafted Hammered Finish",
+      "Ergonomic Handle",
+      "Traditional Serving Design",
+      "Durable Solid Brass",
+      "Elegant Tableware",
     ],
-    material: "Brass & Copper",
-    finish: "Dual Metallic Finish",
-    design: "Traditional Wellness Bottle",
+    material: "Pure Brass",
+    finish: "Hammered Antique Finish",
+    design: "Traditional Jug with Handle",
     sustainability: "Reusable & Plastic-free",
     care: [
-      "Clean with lemon and salt",
+      "Use lemon and salt for cleaning",
       "Avoid dishwasher",
-      "Do not store acidic liquids",
+      "Dry completely after wash",
     ],
   },
+ 
 };
 
 export const similarProducts: Product[] = [
