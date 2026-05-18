@@ -7,7 +7,7 @@ import { FaCartArrowDown } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <header className="hidden md:flex items-center justify-between px-8 lg:px-14 h-24 bg-[#889551] text-white">
+    <header className="hidden md:flex items-center justify-between px-8 lg:px-14 h-24 dark:bg-[#889551] dark:text-white">
 
       {/* LOGO */}
       <Link
@@ -24,13 +24,13 @@ const Navbar = () => {
 
           <BiSearch
             size={24}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-[#889551]"
+            className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-[#889551] text-[#F4F2DD]"
           />
 
           <input
             type="text"
             placeholder="Search products..."
-            className="w-full bg-[#f4f2dd] text-[#889551] rounded-full py-3 pl-12 pr-4 outline-none"
+            className="w-full dark:bg-[#f4f2dd] bg-[#889551] dark:text-[#889551] text-[#F4F2DD] rounded-full py-3 pl-12 pr-4 outline-none"
           />
 
         </div>
@@ -68,7 +68,7 @@ const MobileNavbar = () => {
   const [menu, setMenu] = useState(false);
 
   return (
-    <header className="md:hidden relative bg-[#889551] text-white">
+    <header className="md:hidden relative dark:bg-[#889551] text-white">
 
       {/* TOP BAR */}
       <div className="h-20 px-5 flex items-center justify-between">

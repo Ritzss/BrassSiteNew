@@ -69,7 +69,7 @@ const DetailPage = ({
             </Link>
           </li>
 
-          {product?.subcategory && (
+          {/* {product?.subcategory && (
             <>
               <li>{">"}</li>
               <li>
@@ -81,9 +81,9 @@ const DetailPage = ({
                 </Link>
               </li>
             </>
-          )}
+          )}  */}
 
-          <li>{">"}</li>
+          <li>{">"}</li> 
           <li className="text-[#889551] font-medium line-clamp-1">
             {product?.name || "Product"}
           </li>

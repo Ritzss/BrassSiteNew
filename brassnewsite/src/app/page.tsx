@@ -38,9 +38,9 @@ export default function Home() {
           <div className="w-1/3 flex justify-center items-center ">
             <div className=" dark:bg-[#e4e198] bg-[#889551] rounded-2xl h-100 flex flex-col justify-center items-center  gap-7">
               <Image
-                src={"/Assets/Icons/plant.png"}
+                src={"/Assets/Icons/whiteplant.png"}
                 alt=""
-                width={70}
+                width={120}
                 height={40}
                 className="hidden md:block"
               />
@@ -56,11 +56,11 @@ export default function Home() {
           <div className="w-1/3 flex justify-center items-center ">
             <div className="dark:bg-[#e4e198] bg-[#889551] rounded-2xl h-100 flex flex-col justify-center items-center  gap-7">
               <Image
-                src={"/Assets/Icons/antibacterial.png"}
+                src={"/Assets/Icons/whiteantibacterial.png"}
                 alt=""
-                width={70}
+                width={120}
                 height={40}
-                className="hidden md:block"
+                className="hidden md:block rotate-90"
               />
               <div className="text-3xl font-bold inter dark:text-[#889551] text-[#0E4001]">
                 Anti-bacterial
@@ -74,9 +74,9 @@ export default function Home() {
           <div className="w-1/3 flex justify-center items-center ">
             <div className="dark:bg-[#e4e198] bg-[#889551] rounded-2xl h-100 flex flex-col justify-center items-center  gap-7">
               <Image
-                src={"/Assets/Icons/ecology.png"}
+                src={"/Assets/Icons/whiteecology.png"}
                 alt=""
-                width={70}
+                width={120}
                 height={40}
                 className="hidden md:block"
               />
@@ -111,7 +111,7 @@ export default function Home() {
               height={320}
               className="mx-auto my-2 rounded-3xl"
             />
-            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-[#fff]">
+            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-white hover:bg-[#fff9]">
               <Link href={`/productsdetail`}>Bowls</Link>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function Home() {
               height={320}
               className="mx-auto my-2 rounded-3xl"
             />
-            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-[#fff]">
+            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-white hover:bg-[#fff9]">
               <Link href={`/productsdetail`}>Bottles</Link>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Home() {
               height={320}
               className="mx-auto my-2 rounded-3xl"
             />
-            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-[#fff]">
+            <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[40%] bg-white hover:bg-[#fff9]">
               <Link href={`/productsNdetail`}>Plates</Link>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex justify-center mt-15 ">
-        <button className="dark:bg-[#e4e198] bg-[#889551] text-white text-3xl p-5 rounded-tl-3xl rounded-br-3xl w-70 inter shadow-[1px_3px_5px_0_#000] tracking-widest">
+        <button className="dark:bg-[#e4e198] bg-[#889551] hover:bg-[#9c9b66] text-white text-3xl p-5 rounded-tl-3xl rounded-br-3xl w-70 inter shadow-[1px_3px_5px_0_#000] tracking-widest">
           Explore Now
         </button>
       </div>

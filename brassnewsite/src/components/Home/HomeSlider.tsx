@@ -90,7 +90,7 @@ export default function HomeSlider() {
                 </div>
 
                 {/* RIGHT CONTENT */}
-                <div className="max-w-[700px] text-white">
+                <div className="max-w-175 text-white">
                   <h1 className="text-4xl md:text-6xl leading-tight font-serif mb-8">
                     {slide.title}
                   </h1>
