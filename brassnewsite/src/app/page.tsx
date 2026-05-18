@@ -11,7 +11,7 @@ export default function Home() {
     <div
       className={`bg-[#f4f2dd] dark:bg-[#889551] dark:text-black text-black sticky top-2.5`}
     >
-      <div className="hidden md:block">
+      <div className="hidden md:block sticky top-0 z-20">
         <Navbar />
       </div>
       <div className="block md:hidden">
@@ -97,7 +97,7 @@ export default function Home() {
         id="category"
         className="flex flex-col px-auto mb-10 bg-[#e4e198] h-150"
       >
-        <div className="flex h-15 ">
+        <div className="flex h-15 mt-10">
           <div className="text-5xl w-full text-center inter dark:text-white text-black">
             Category
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
               <Link href={`/productsdetail`}>Bowls</Link>
             </div>
           </div>
-          <div className=" w-1/3">
+          <div className="w-1/3">
             <Image
               alt=""
               src="/Demo/Images/image.png"

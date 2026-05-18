@@ -3,7 +3,7 @@
 import { Product } from "@/Types/Product";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { FiRefreshCcw } from "react-icons/fi";
 import {
@@ -13,6 +13,7 @@ import {
 } from "react-icons/io";
 import { toast } from "sonner";
 import ProductCard from "./ProductCard";
+import ProductButton from "../Global/ProductButton";
 // import CurvedCarousel from "../UI/CurvedCarousel";
 // import PipeSection from "../UI/CurvedCarousel";
 
@@ -40,9 +41,7 @@ const DetailPage = ({
     setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  const handleAddtoCart = () => {
-    toast.success("Product Added to Cart");
-  };
+  
 
   const handleBuyNow = () => {
     toast.success("Buying Now....");
@@ -83,7 +82,7 @@ const DetailPage = ({
             </>
           )}  */}
 
-          <li>{">"}</li> 
+          <li>{">"}</li>
           <li className="text-[#889551] font-medium line-clamp-1">
             {product?.name || "Product"}
           </li>
@@ -225,12 +224,7 @@ const DetailPage = ({
             <div className="text-lg">Inclusive of All Taxes</div>
           </div>
           <div className="mt-5 flex gap-4">
-            <button
-              onClick={handleAddtoCart}
-              className="cursor-pointer text-xl md:text-2xl bg-[#889551] dark:bg-[#e4e198] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-white rounded-full py-4 md:p-5 text-center w-full"
-            >
-              Add to Cart
-            </button>
+            <ProductButton/>
             <button
               onClick={handleBuyNow}
               className="cursor-pointer text-xl md:text-2xl bg-[#E4E198] dark:bg-[#f4f2dd] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-[#889551] rounded-full py-4 md:p-5 text-center w-full"
@@ -238,7 +232,7 @@ const DetailPage = ({
               Buy Now
             </button>
           </div>
-          <div className="flex flex-wrap flex-col md:flex-row md:gap-8 text-2xl">
+          <div className="flex flex-wrap flex-col md:flex-row md:gap-8 text-2xl ml-5">
             <li className="text-[#889551] dark:text-[#e4e198]">
               <span className="text-black dark:text-[#fdf2dd] inter">
                 Handcrafted
@@ -266,7 +260,8 @@ const DetailPage = ({
               Free delivery on orders over $50
             </div>
             <div className="p-1 text-xl font-light flex items-center gap-1 w-full inter">
-              <FiRefreshCcw /> 30-day easy returns & exchanges
+              <FiRefreshCcw />
+              {"  "} 7-day easy returns & exchanges
             </div>
           </div>
         </div>
@@ -390,42 +385,49 @@ const DetailPage = ({
           Product Details
         </div>
         <div className="flex flex-col lg:flex-row  lg:justify-center">
-          <div className={`inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] w-full lg:w-[48%] my-2 md:m-2 px-8 py-4 ${showDetails ? "rounded-4xl" : "rounded-2xl" }`}>
-            <div className={`${showDetails ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex justify-between items-center`} onClick={() => setShowDetails(!showDetails)}>
+          <div
+            className={`inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] w-full lg:w-[48%] my-2 md:m-2 px-8 py-4 ${showDetails ? "rounded-4xl" : "rounded-2xl"}`}
+          >
+            <div
+              className={`${showDetails ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex justify-between items-center`}
+              onClick={() => setShowDetails(!showDetails)}
+            >
               Specifications
               <IoIosArrowDown
                 className={`${showDetails ? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}
               />
             </div>
-            <div  className={`cursor-default overflow-hidden transition-all duration-500 ${showDetails ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}>
+            <div
+              className={`cursor-default overflow-hidden transition-all duration-500 ${showDetails ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
+            >
               <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Material</div>
-              <div>{product?.details?.material}</div>
-            </div>
-            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Capacity</div>
-              <div>{variantActive?.capacity}ml</div>
-            </div>
-            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Finish</div>
-              <div>{product?.details?.finish}</div>
-            </div>
-            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Weight</div>
-              <div>{variantActive?.weight}g</div>
-            </div>
-            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Design</div>
-              <div>{product?.details?.design}</div>
-            </div>
-            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
-              <div>Sustainability</div>
-              <div>{product?.details?.sustainability}</div>
-            </div>
+                <div>Material</div>
+                <div>{product?.details?.material}</div>
+              </div>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+                <div>Capacity</div>
+                <div>{variantActive?.capacity}ml</div>
+              </div>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+                <div>Finish</div>
+                <div>{product?.details?.finish}</div>
+              </div>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+                <div>Weight</div>
+                <div>{variantActive?.weight}g</div>
+              </div>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+                <div>Design</div>
+                <div>{product?.details?.design}</div>
+              </div>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+                <div>Sustainability</div>
+                <div>{product?.details?.sustainability}</div>
+              </div>
             </div>
           </div>
           <div
-            className={`bg-[#e4e198] inter ${showFeatures ? "rounded-4xl" : "rounded-2xl" } px-8 py-4 shadow-[0_4px_10px_#000000af]  w-full lg:w-[48%] my-2 md:m-2 p-4"`}
+            className={`bg-[#e4e198] inter ${showFeatures ? "rounded-4xl" : "rounded-2xl"} px-8 py-4 shadow-[0_4px_10px_#000000af]  w-full lg:w-[48%] my-2 md:m-2 p-4"`}
           >
             <div
               className={`${showFeatures ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex items-center justify-between`}

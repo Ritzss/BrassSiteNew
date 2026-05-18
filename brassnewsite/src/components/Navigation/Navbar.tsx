@@ -7,7 +7,7 @@ import { FaCartArrowDown } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <header className="hidden md:flex items-center justify-between px-8 lg:px-14 h-24 dark:bg-[#889551] dark:text-white">
+    <header className="hidden md:flex items-center justify-between px-8 lg:px-14 h-24 dark:bg-[#889551] bg-[#f4f2dd] dark:text-white">
 
       {/* LOGO */}
       <Link
@@ -20,7 +20,7 @@ const Navbar = () => {
       {/* SEARCH */}
       <div className="flex-1 flex justify-center px-6">
 
-        <div className="relative w-full max-w-[500px]">
+        <div className="relative w-full max-w-125">
 
           <BiSearch
             size={24}
@@ -48,7 +48,7 @@ const Navbar = () => {
         </Link>
 
         <Link
-          href="#category"
+          href={"/productsdetail"}
           className="hover:text-[#f4f2dd] transition"
         >
           Products
@@ -68,7 +68,7 @@ const MobileNavbar = () => {
   const [menu, setMenu] = useState(false);
 
   return (
-    <header className="md:hidden relative dark:bg-[#889551] text-white">
+    <header className="md:hidden relative dark:bg-[#889551] bg-[#f4f2dd] text-white">
 
       {/* TOP BAR */}
       <div className="h-20 px-5 flex items-center justify-between">
@@ -80,14 +80,14 @@ const MobileNavbar = () => {
         >
 
           <span
-            className={`block w-7 h-[2px] bg-white transition-all duration-300 ${
-              menu ? "rotate-45 translate-y-[6px]" : ""
+            className={`block w-7 h-0.5 bg-white transition-all duration-300 ${
+              menu ? "rotate-45 translate-y-1.5" : ""
             }`}
           />
 
           <span
-            className={`block w-7 h-[2px] bg-white transition-all duration-300 ${
-              menu ? "-rotate-45 -translate-y-[6px]" : ""
+            className={`block w-7 h-0.5 bg-white transition-all duration-300 ${
+              menu ? "-rotate-45 -translate-y-1.5" : ""
             }`}
           />
 
