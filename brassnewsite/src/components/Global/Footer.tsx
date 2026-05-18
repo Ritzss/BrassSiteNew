@@ -93,7 +93,7 @@ const Footer = () => {
           );
         })}
       </div>
-      <div className="flex w-[90%] text-center mx-auto justify-center text-xl border-t-3 text-[#f4f2dd] dark:text-[#889551]">
+      <div className=" flex w-[90%] text-center mx-auto justify-center text-xl border-t-3 text-[#f4f2dd] dark:text-[#889551]">
         &copy; 2026 &quot;BrandName&quot; . All rights reserved.
       </div>
     </footer>

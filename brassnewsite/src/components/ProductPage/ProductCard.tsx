@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const variant = product?.variants?.[0];
 
   return (
-    <div className="cursor-default p-4 inter text-white">
+    <div className="cursor-default p-4 inter shrink-0">
       <Link
         href={`/productsdetail/${product.Productid}`}
         className="overflow-hidden rounded-t-3xl rounded-lg bg-[#e4e198] block"
@@ -26,8 +26,8 @@ const ProductCard = ({ product }: { product: Product }) => {
 
         <div className="px-3 text-xl pt-2 font-semibold">{product.name}</div>
 
-        <div className="p-2 text-white group">
-          {product.details?.features?.[0]}...
+        <div className="p-2 group">
+          {product.details?.features?.[2]}...
           <span className="text-xs group-hover:text-[#889551] group-hover:underline transition-colors duration-500">See More</span>
         </div>
 

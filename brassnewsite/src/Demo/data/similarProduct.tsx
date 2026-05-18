@@ -218,6 +218,7 @@ const similarProduct3 = {
  
 };
 
+
 export const similarProducts: Product[] = [
   similarProduct1,
   similarProduct2,

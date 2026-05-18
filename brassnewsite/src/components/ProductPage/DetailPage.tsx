@@ -14,7 +14,7 @@ import {
 import { toast } from "sonner";
 import ProductCard from "./ProductCard";
 // import CurvedCarousel from "../UI/CurvedCarousel";
-import PipeSection from "../UI/CurvedCarousel";
+// import PipeSection from "../UI/CurvedCarousel";
 
 const DetailPage = ({
   product,
@@ -26,6 +26,8 @@ const DetailPage = ({
   const [variant, setVariant] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showCare, setShowCare] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [showFeatures, setShowFeatures] = useState(false);
 
   const variantActive = product?.variants?.[variant];
   const images = variantActive?.images || [];
@@ -60,7 +62,7 @@ const DetailPage = ({
 
           <li>
             <Link
-              href={`/${product?.category?.toLowerCase()}`}
+              href={`productsdetail/${product?.category?.toLowerCase()}`}
               className="hover:text-black transition capitalize"
             >
               {product?.category || "Category"}
@@ -115,14 +117,22 @@ const DetailPage = ({
               className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={prevImage}
             >
-              <IoIosArrowBack className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]" size={48} color="#889551" />
+              <IoIosArrowBack
+                className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]"
+                size={48}
+                color="#889551"
+              />
             </div>
 
             <div
               className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={nextImage}
             >
-              <IoIosArrowForward className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]"  size={48} color="#889551" />
+              <IoIosArrowForward
+                className="scale-x-200 stroke-12 stroke-[#e4e198] w-[3vw]"
+                size={48}
+                color="#889551"
+              />
             </div>
           </div>
           {/* Mobile Image Slider */}
@@ -148,14 +158,22 @@ const DetailPage = ({
               className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={prevImage}
             >
-              <IoIosArrowBack  className="scale-x-300 w-[4vw]" size={48} color="#889551" />
+              <IoIosArrowBack
+                className="scale-x-300 w-[4vw]"
+                size={48}
+                color="#889551"
+              />
             </div>
 
             <div
               className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
               onClick={nextImage}
             >
-              <IoIosArrowForward className="scale-x-300 w-[4vw]"  size={48} color="#889551" />
+              <IoIosArrowForward
+                className="scale-x-300 w-[4vw]"
+                size={48}
+                color="#889551"
+              />
             </div>
           </div>
 
@@ -176,9 +194,11 @@ const DetailPage = ({
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="cursor-default dark:text-[#f4f2dd] flex-1 flex-col flex gap-5 p-10">
-          <div className="head-font w-60 md:w-94 text-[2rem] dark:text-shadow-[4px_0_1px_#000000] md:text-[4rem]">{product?.name}</div>
-          <div className="text-3xl descrip-font">{product?.description}</div>
+        <div className="cursor-default dark:text-[#f4f2dd] flex-col flex gap-5 p-5">
+          <div className="head-font w-60 md:w-94 text-[2rem] dark:text-shadow-[4px_0_1px_#000000] md:text-[4rem]">
+            {product?.name}
+          </div>
+          <div className="md:text-3xl descrip-font">{product?.description}</div>
           <div className="flex text-2xl gap-1">
             <div className="inter">Capacity:</div>
             <div className="inter">{variantActive?.capacity}ml</div>
@@ -213,12 +233,12 @@ const DetailPage = ({
             </button>
             <button
               onClick={handleBuyNow}
-              className="cursor-pointer text-xl md:text-2xl bg-[#f4f2dd] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-[#889551] rounded-full py-4 md:p-5 text-center w-full"
+              className="cursor-pointer text-xl md:text-2xl bg-[#E4E198] dark:bg-[#f4f2dd] lg:hover:shadow-[0_2px_10px_#000000af] shadow-[0_0_0] lg:hover:-translate-y-1 transition-all duration-300 text-[#889551] rounded-full py-4 md:p-5 text-center w-full"
             >
               Buy Now
             </button>
           </div>
-          <div className="flex flex-wrap gap-8 text-2xl">
+          <div className="flex flex-wrap flex-col md:flex-row md:gap-8 text-2xl">
             <li className="text-[#889551] dark:text-[#e4e198]">
               <span className="text-black dark:text-[#fdf2dd] inter">
                 Handcrafted
@@ -256,13 +276,15 @@ const DetailPage = ({
 
       {/* Quote */}
       <div className="text-center cursor-default dark:text-[#fdf2dd] text-[#889551] static-content w-full lg:w-[56%] mx-auto flex justify-center">
-        &quot;Designed to support natural hydration while reducing everyday
-        waste.&quot;
+        &quot;Designed to support natural hydration{" "}
+        <br className="md:hidden " /> while reducing everyday waste.&quot;
       </div>
 
       {/* Health & Wellness */}
       <div className="cursor-default dark:text-[#fdf2dd] flex-col flex items-center">
-        <div className="md:text-7xl text-3xl inter text-center">Health & Wellness Benefits</div>
+        <div className="md:text-7xl text-3xl inter text-center">
+          Health & Wellness Benefits
+        </div>
         <div className="rounded-2xl shadow-[0_4px_10px_#000000af] m-2 p-8 flex justify-center flex-wrap gap-3 w-[85%] bg-[#e4e198]">
           <div className="lg:w-[45%] h-fit flex items-center flex-wrap gap-1 m-2 font-bold inter">
             <Image
@@ -270,6 +292,7 @@ const DetailPage = ({
               alt=""
               width={30}
               height={40}
+              className="hidden md:block"
             />
             <div className={`text-[#889551] text-lg`}>
               Supports Better Digestion Process
@@ -284,6 +307,7 @@ const DetailPage = ({
               alt=""
               width={30}
               height={40}
+              className="hidden md:block"
             />
             <div className={`text-[#889551] text-lg`}>
               {" "}
@@ -299,6 +323,7 @@ const DetailPage = ({
               alt=""
               width={30}
               height={40}
+              className="hidden md:block"
             />
             <div className={`text-[#889551] text-lg`}>
               Helps Maintain Water Freshness
@@ -313,6 +338,7 @@ const DetailPage = ({
               alt=""
               width={30}
               height={40}
+              className="hidden md:block"
             />
             <div className={`text-[#889551] text-lg`}>
               Rooted in Traditional Wellness Practices
@@ -327,20 +353,20 @@ const DetailPage = ({
       {/* Why Brass? */}
       <div className="cursor-default inter flex flex-col lg:flex-row justify-center mx-auto w-[85%]">
         <div className="flex flex-col lg:w-[80%]">
-          <div className="text-5xl text-[#889551] dark:text-[#fdf2dd] h-fit w-full">
+          <div className="text-3xl md:text-5xl text-[#889551] dark:text-[#fdf2dd] h-fit w-full">
             Why Brass ?
           </div>
           <div className="px-4 flex items-center w-full">
-            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-40 md:h-30 lg:h-[85%]"></div>
-            <div className="p-3 h-full text-2xl md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
+            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-20 md:h-30 lg:h-[85%]"></div>
+            <div className="p-3 h-full md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
               Brass is a natural copper-zinc alloy that has been used in
               traditional wellness practices for thousands of years, valued for
               its unique mineral properties.
             </div>
           </div>
           <div className="px-4 flex items-center w-full">
-            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-40 md:h-30 lg:h-[85%]"></div>
-            <div className="p-3 h-full text-2xl md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
+            <div className="border-3 border-[#889551] bg-[#889551] dark:bg-[#fdf2dd] dark:border-[#fdf2dd] w-2 rounded-full h-20 md:h-30 lg:h-[85%]"></div>
+            <div className="p-3 h-full md:text-3xl text-[#000000af] dark:text-[#fdf2dd]">
               Storing water in brass vessels is rooted in Ayurvedic traditions,
               where the subtle interactions between water and metal are believed
               to support balance and vitality.
@@ -364,43 +390,60 @@ const DetailPage = ({
           Product Details
         </div>
         <div className="flex flex-col lg:flex-row  lg:justify-center">
-          <div className="inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] rounded-4xl w-full lg:w-[48%] my-2 md:m-2 p-8">
-            <div className="text-5xl mb-5 text-[#889551] flex justify-between">
+          <div className={`inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] w-full lg:w-[48%] my-2 md:m-2 px-8 py-4 ${showDetails ? "rounded-4xl" : "rounded-2xl" }`}>
+            <div className={`${showDetails ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex justify-between items-center`} onClick={() => setShowDetails(!showDetails)}>
               Specifications
+              <IoIosArrowDown
+                className={`${showDetails ? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}
+              />
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div  className={`cursor-default overflow-hidden transition-all duration-500 ${showDetails ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Material</div>
               <div>{product?.details?.material}</div>
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Capacity</div>
               <div>{variantActive?.capacity}ml</div>
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Finish</div>
               <div>{product?.details?.finish}</div>
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Weight</div>
               <div>{variantActive?.weight}g</div>
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Design</div>
               <div>{product?.details?.design}</div>
             </div>
-            <div className="text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+            <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
               <div>Sustainability</div>
               <div>{product?.details?.sustainability}</div>
             </div>
+            </div>
           </div>
-          <div className="bg-[#e4e198] inter py-8 shadow-[0_4px_10px_#000000af] rounded-4xl w-full lg:w-[48%] my-2 md:m-2 p-4">
-            <div className="text-5xl mb-5 text-[#889551]">Key Features</div>
-            <div className="">
+          <div
+            className={`bg-[#e4e198] inter ${showFeatures ? "rounded-4xl" : "rounded-2xl" } px-8 py-4 shadow-[0_4px_10px_#000000af]  w-full lg:w-[48%] my-2 md:m-2 p-4"`}
+          >
+            <div
+              className={`${showFeatures ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex items-center justify-between`}
+              onClick={() => setShowFeatures(!showFeatures)}
+            >
+              Key Features{" "}
+              <IoIosArrowDown
+                className={`${showFeatures ? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}
+              />
+            </div>
+            <div
+              className={`cursor-default overflow-hidden transition-all duration-500 ${showFeatures ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
+            >
               {product?.details?.features.map((feat, ind) => {
                 return (
                   <div
                     key={ind}
-                    className="flex text-2xl items-center group hover:text-[#889551] p-2 py-4 transition-colors duration-300"
+                    className="flex md:text-2xl items-center group hover:text-[#889551] p-2 py-4 transition-colors duration-300"
                   >
                     <BsArrowReturnRight className="mr-3 text-black group-hover:text-[#889551] transition-colors duration-300" />
                     {feat}
@@ -419,18 +462,20 @@ const DetailPage = ({
       >
         <div className="cursor-pointer flex items-center justify-between p-5 text-2xl">
           <div className={``}>Care Instructions</div>
-          <div className={`${showCare? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}>
+          <div
+            className={`${showCare ? "rotate-180" : "rotate-0"} trasnsition-all duration-500`}
+          >
             <IoIosArrowDown />
           </div>
         </div>
         <div
-          className={`px-15 cursor-default overflow-hidden transition-all duration-500 ${showCare ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
+          className={`px-10 md:px-15 cursor-default overflow-hidden transition-all duration-500 ${showCare ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
         >
           {product?.details?.care?.map((care, ind) => {
             return (
               <div
                 key={ind}
-                className="flex text-2xl items-center group hover:text-[#889551] p-2 py-4 transition-all duration-300"
+                className="flex md:text-2xl items-center group hover:text-[#889551] p-2 py-4 transition-all duration-300"
               >
                 <BsArrowReturnRight className="mr-3 text-black group-hover:text-[#889551] transition-colors duration-300" />
                 {care}
@@ -446,10 +491,10 @@ const DetailPage = ({
           <div className="text-center md:text-6xl text-3xl">
             Sustainability & Eco Impact
           </div>
-          <div className="md:text-6xl text-xl font-light">
+          <div className="text-xl md:text-2xl text-center font-light">
             Every conscious choice contributes to a healthier planet.
           </div>
-          <div className="text-2xl lg:text-4xl dark:bg-[#e4e198] dark:text-black rounded-tl-[30px] lg:rounded-tl-[70px] rounded-br-[30px] lg:rounded-br-[70px] rounded-lg text-white bg-[#889551] p-6 text-center">
+          <div className="md:text-2xl lg:text-4xl dark:bg-[#e4e198] dark:text-black rounded-tl-[30px] lg:rounded-tl-[70px] rounded-br-[30px] lg:rounded-br-[70px] rounded-lg text-white bg-[#889551] p-6 text-center">
             Choosing a brass bottle means choosing to reduce waste, honor
             tradition, and invest in a product that serves you and the Earth for
             years to come.
@@ -468,9 +513,6 @@ const DetailPage = ({
             ))}
         </div>
       </div>
-
-      {/* test */}
-      <PipeSection />
     </main>
   );
 };

@@ -19,46 +19,85 @@
   }
 }
 
+/**  Media Devices Query */
+
+@media (max-width: 425px) {
+  .descrip-font {
+    /* Experience the ancient wisdom of Ayurveda with our handcrafted brass water bottle. Designed to naturally alkalize and purify your water while supporting your wellness journey. */
+    /* height: 116px; */
+    font-family: "Inter Tight";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .head-font {
+    /* Pure Brass Bottle */
+    /* width: 376px; */
+    /* height: 154px; */
+    font-family: "Inria Serif";
+    font-style: normal;
+    font-weight: 400;
+    /* font-size: 64px; */
+    line-height: 20px;
+  }
+
+  .static-content {
+    /* "Designed to support natural hydration while reducing everyday waste." */
+
+    height: 36px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (min-width: 426px) {
+  .descrip-font {
+    /* Experience the ancient wisdom of Ayurveda with our handcrafted brass water bottle. Designed to naturally alkalize and purify your water while supporting your wellness journey. */
+    /* height: 116px; */
+    font-family: "Inter Tight";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .head-font {
+    /* Pure Brass Bottle */
+    /* width: 376px; */
+    /* height: 154px; */
+    font-family: "Inria Serif";
+    font-style: normal;
+    font-weight: 400;
+    /* font-size: 64px; */
+    line-height: 77px;
+  }
+
+  .static-content {
+    /* "Designed to support natural hydration while reducing everyday waste." */
+
+    height: 76px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31.7468px;
+    line-height: 38px;
+    text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/**  Media Devices Query */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   user-select: none;
-}
-
-.head-font {
-  /* Pure Brass Bottle */
-  /* width: 376px; */
-  /* height: 154px; */
-  font-family: "Inria Serif";
-  font-style: normal;
-  font-weight: 400;
-  /* font-size: 64px; */
-  line-height: 77px;
-}
-
-.descrip-font {
-  /* Experience the ancient wisdom of Ayurveda with our handcrafted brass water bottle. Designed to naturally alkalize and purify your water while supporting your wellness journey. */
-  /* height: 116px; */
-  font-family: "Inter Tight";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 24px;
-  line-height: 29px;
-}
-
-.static-content{
-  /* "Designed to support natural hydration while reducing everyday waste." */
-
-height: 76px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 31.7468px;
-line-height: 38px;
-text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
-
 }
 
 /* @media (max-width:425px) {
@@ -68,46 +107,47 @@ text-shadow: 0px 1.71219px 1.71219px rgba(0, 0, 0, 0.25);
 } */
 
 /* Capacity : 1000ml */
-.inter{
-font-family: 'Inter';
+.inter {
+  font-family: "Inter";
 }
 
-.pipeContainer{
-  width:100%;
-  height:100%;
-  position:relative;
+.pipeContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.pipeContent{
-  width:100%;
-  height:100%;
-  clip-path:url(#pipeClip);
-  overflow:hidden;
-  display:flex;
-  align-items:center;
+.pipeContent {
+  width: 100%;
+  height: 100%;
+  clip-path: url(#pipeClip);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.slider{
-  display:flex;
-  gap:20px;
-  width:max-content;
+.slider {
+  display: flex;
+  gap: 20px;
+  width: max-content;
   animation: slide 25s linear infinite;
 }
 
-.slider:hover,.slider:active{
+.slider:hover,
+.slider:active {
   animation-play-state: paused;
 }
 
-.pipeItem{
-  flex-shrink:0;
+.pipeItem {
+  flex-shrink: 0;
   /* border-radius: 10%; */
 }
 
-@keyframes slide{
-  from{
+@keyframes slide {
+  from {
     transform: translateX(0);
   }
-  to{
+  to {
     transform: translateX(-50%);
   }
 }
