@@ -1,20 +1,24 @@
 "use client";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function ProductButton() {
   const [quantity, setQuantity] = useState(0);
 
   const handleAddtoCart = () => {
     setQuantity(1);
+    toast.success('Added to Cart')
   };
 
   const increaseQty = () => {
     setQuantity((prev) => prev + 1);
+    toast.success(`Quantity Increased to ${quantity+1}`)
   };
 
   const decreaseQty = () => {
     if (quantity > 1) {
       setQuantity((prev) => prev - 1);
+    toast.success(`Quantity Decreased to ${quantity-1}`)
     } else {
       setQuantity(0);
     }
