@@ -29,6 +29,8 @@ const DetailPage = ({
   const [showCare, setShowCare] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [showFeatures, setShowFeatures] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
 
   const variantActive = product?.variants?.[variant];
   const images = variantActive?.images || [];
@@ -197,7 +199,24 @@ const DetailPage = ({
           <div className="head-font w-60 md:w-94 text-[2rem] dark:text-shadow-[4px_0_1px_#000000] md:text-[4rem]">
             {product?.name}
           </div>
-          <div className="md:text-3xl descrip-font">{product?.description}</div>
+          <div className="md:text-3xl descrip-font">
+            <p
+                className={`transition-all duration-300 ${
+                  !showFullDescription ? "line-clamp-3" : ""
+                }`}
+              >
+                {product?.description}
+              </p>
+
+              {product?.description && product.description.length > 200 && (
+                <button
+                  onClick={() => setShowFullDescription((prev) => !prev)}
+                  className="mt-2 text-sm font-medium text-[#6a0f1f] underline"
+                >
+                  {showFullDescription ? "Show Less" : "Show More"}
+                </button>
+              )}
+          </div>
           <div className="flex text-2xl gap-1">
             <div className="inter">Capacity:</div>
             <div className="inter">{variantActive?.capacity}ml</div>

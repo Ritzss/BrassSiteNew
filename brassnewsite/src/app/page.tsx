@@ -19,7 +19,7 @@ export default function Home() {
       </div>
 
       {/* Slider */}
-      <div id="bestseller" className="">
+      <div id="home" className="">
         <HomeSlider />
       </div>
 
@@ -149,7 +149,7 @@ export default function Home() {
       </div>
 
       {/* Bestseller */}
-      <div id="bestseller" className="min-h-screen">
+      <div id="bestseller" className="min-h-100">
         <div className="relative top-25 text-6xl text-center inter dark:text-[#f4f2dd] text-[#0E4001] mb-40 ">
           Bestsellers
         </div>

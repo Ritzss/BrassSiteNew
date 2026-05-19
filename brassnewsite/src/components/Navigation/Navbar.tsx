@@ -41,7 +41,7 @@ const Navbar = () => {
       <nav className="flex items-center gap-8 uppercase font-medium">
 
         <Link
-          href="/"
+          href="/#home"
           className="hover:text-[#f4f2dd] transition"
         >
           Home
