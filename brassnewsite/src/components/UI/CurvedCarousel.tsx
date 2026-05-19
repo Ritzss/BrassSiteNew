@@ -13,7 +13,7 @@ export default function PipeSection({items}:{items?:string[]}) {
     <div className="pipeContainer">
       <svg width="0" height="0">
         <clipPath id="pipeClip" clipPathUnits="objectBoundingBox">
-          <path d=" M0,0 C0.25,0.20 0.75,0.20 1,0 L1,1 C0.75,0.75 0.25,0.75 0,1 Z" />
+          <path d=" M0,0 C0.20,0.15 0.80,0.15 1,0 L1,1 C0.80,0.80 0.20,0.80 0,1 Z" />
         </clipPath>
       </svg>
 
@@ -24,7 +24,7 @@ export default function PipeSection({items}:{items?:string[]}) {
               key={i}
               src={item}
               alt="image"
-              width={364}
+              width={384}
               height={346}
               className="pipeItem"
             />
