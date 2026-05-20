@@ -529,8 +529,8 @@ const DetailPage = ({
         <div className="flex shrink-0 overflow-x-auto no-scrollbar">
           {similarProduct
             ?.filter((prod) => prod.category == product?.category)
-            .map((prod) => (
-              <ProductCard key={`${prod.Productid}`} product={prod} />
+            .map((prod,i) => (
+              <ProductCard key={`${prod.Productid}-${i}`} product={prod} />
             ))}
         </div>
       </div>

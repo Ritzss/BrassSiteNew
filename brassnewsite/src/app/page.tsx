@@ -95,14 +95,14 @@ export default function Home() {
       {/* Category */}
       <div
         id="category"
-        className="flex flex-col px-auto mb-10 bg-[#e4e198] h-150"
+        className="flex flex-col justify-center item-center gap-10 bg-[#e4e198] min-h-screen"
       >
         <div className="flex h-15 mt-10">
-          <div className="text-5xl w-full text-center inter text-[#0E4001]">
+          <div className="text-5xl font-semibold w-full text-center inter text-[#0E4001]">
             Category
           </div>
         </div>
-        <div className=" flex flex-1 mx-50">
+        <div className=" flex flex-1 mx-40">
           <div className="w-1/3">
             <Image
               alt=""
@@ -149,7 +149,7 @@ export default function Home() {
       </div>
 
       {/* Bestseller */}
-      <div id="bestseller" className="min-h-100">
+      <div id="bestseller" className="min-h-screen">
         <div className="relative top-25 text-6xl text-center inter dark:text-[#f4f2dd] text-[#0E4001] mb-40 ">
           Bestsellers
         </div>
