@@ -82,7 +82,7 @@ const similarProduct1 = {
   name: "Pure Brass Tumbler",
   description:
     "A traditional brass tumbler crafted for daily hydration. Inspired by Ayurvedic practices, it helps maintain the natural purity and alkalinity of drinking water.",
-  category: "Drinkware",
+  category: "plates",
   subcategory: "Brass Tumblers",
   D_discription:
     "Handcrafted from solid brass with a smooth polished finish. Perfect for serving water or traditional beverages while adding a timeless aesthetic to your tableware.",
@@ -129,7 +129,7 @@ const similarProduct2 = {
   name: "Hammered Brass Jug",
   description:
     "Serve water the traditional way with this handcrafted hammered brass jug designed for durability and timeless elegance.",
-  category: "Drinkware",
+  category: "bowls",
   subcategory: "Brass Jugs",
   D_discription:
     "Featuring a handcrafted hammered texture, this brass jug is ideal for storing and serving water while maintaining Ayurvedic wellness traditions.",
@@ -176,7 +176,7 @@ const similarProduct3 = {
   name: "Brass Copper Fusion Bottle",
   description:
     "A premium fusion bottle combining brass and copper to enhance water purity while delivering a distinctive handcrafted look.",
-  category: "bottles",
+  category: "glasses",
   subcategory: "fusion bottles",
   D_discription:
     "This handcrafted bottle blends brass durability with copper’s wellness properties, making it a stylish and health-conscious hydration solution.",
@@ -221,6 +221,21 @@ const similarProduct3 = {
 
 
 export const similarProducts: Product[] = [
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
+  similarProduct1,
   similarProduct1,
   similarProduct2,
   similarProduct2,

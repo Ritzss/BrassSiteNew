@@ -13,7 +13,14 @@ import { similarProducts } from "@/Demo/data/similarProduct";
 
 const ITEMS_PER_LOAD = 10;
 
+import { useParams } from "next/navigation";
+
 const Page = () => {
+  const params = useParams();
+
+  const categorySlug =
+    typeof params.slug === "string" ? params.slug.toLowerCase() : "";
+
   /* ---------------- FILTER STATE ---------------- */
 
   const [filters, setFilters] = useState<FiltersType>({
@@ -24,10 +31,18 @@ const Page = () => {
     price: [],
   });
 
+  /* ---------------- CATEGORY PRODUCTS ---------------- */
+
+  const categoryProducts = useMemo(() => {
+    return similarProducts.filter(
+      (product) => product.category?.toLowerCase() === categorySlug,
+    );
+  }, [categorySlug]);
+
   /* ---------------- FILTER LOGIC ---------------- */
 
   const filteredProducts = useMemo(() => {
-    return similarProducts.filter((product) => {
+    return categoryProducts.filter((product) => {
       const categoryMatch =
         filters.category.length === 0 ||
         filters.category.includes(product.category);
@@ -85,7 +100,7 @@ const Page = () => {
         priceMatch
       );
     });
-  }, [filters]);
+  }, [filters, categoryProducts]);
 
   /* ---------------- INFINITE SCROLL ---------------- */
 
@@ -122,11 +137,11 @@ const Page = () => {
     };
   }, [visibleCount, filteredProducts.length]);
 
-  /* RESET LOAD COUNT */
+  /* ---------------- RESET COUNT ---------------- */
 
   useEffect(() => {
     setVisibleCount(ITEMS_PER_LOAD);
-  }, [filters]);
+  }, [filters, categorySlug]);
 
   /* ---------------- PRODUCTS ---------------- */
 
@@ -136,15 +151,21 @@ const Page = () => {
     <div className="flex">
       {/* SIDEBAR */}
 
-      <FilterSidebar filters={filters} setFilters={setFilters} />
+      <FilterSidebar
+        filters={filters}
+        setFilters={setFilters}
+        hideCategory={true}
+      />
 
-      {/* PRODUCTS SECTION */}
+      {/* PRODUCTS */}
 
       <div className="flex-1 px-3 md:px-5 py-5">
         {/* HEADER */}
 
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-semibold">Brass Collection</h1>
+          <h1 className="text-3xl font-semibold capitalize">
+            {categorySlug} Collection
+          </h1>
 
           <p className="text-sm opacity-70">
             {filteredProducts.length} Products
@@ -152,10 +173,9 @@ const Page = () => {
         </div>
 
         <hr />
+        {/* PRODUCT GRID */}
 
-        {/* PRODUCTS */}
-
-        <div className="flex flex-wrap gap-3 overflow-y-scroll no-scrollbar">
+        <div className="flex flex-wrap gap-3">
           {visibleProducts.map((prod, i) => (
             <ProductCard key={`${prod.Productid}-${i}`} product={prod} />
           ))}

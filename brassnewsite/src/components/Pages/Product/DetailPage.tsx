@@ -63,7 +63,7 @@ const DetailPage = ({
 
           <li>
             <Link
-              href={`productsdetail/${product?.category?.toLowerCase()}`}
+              href={`/category/${product?.category?.toLowerCase()}`}
               className="hover:text-black transition capitalize"
             >
               {product?.category || "Category"}

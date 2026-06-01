@@ -36,7 +36,7 @@ export default function AdminDashboard() {
 
         <StatCard
           title="Revenue"
-          value="₹1,24,000"
+          value="$1,24,0.00"
         />
 
       </div>
@@ -53,12 +53,12 @@ export default function AdminDashboard() {
 
             <div className="flex justify-between bg-[#f4f2dd] dark:bg-[#889551] p-4 rounded-xl">
               <span>Order #1024</span>
-              <span>₹2400</span>
+              <span>$24.00</span>
             </div>
 
             <div className="flex justify-between bg-[#f4f2dd] dark:bg-[#889551] p-4 rounded-xl">
               <span>Order #1025</span>
-              <span>₹5200</span>
+              <span>$52.00</span>
             </div>
 
           </div>

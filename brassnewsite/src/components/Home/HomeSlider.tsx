@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const slides = [
@@ -84,9 +85,9 @@ export default function HomeSlider() {
               <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-20">
                 {/* LEFT BUTTON */}
                 <div className="flex items-end h-full pb-20">
-                  <button className="bg-[#97ab4d] hover:bg-[#879a44] text-white px-10 py-4 rounded-full text-lg font-bold shadow-xl transition duration-300 hover:scale-105">
-                    SHOP NOW
-                  </button>
+                  <Link href={'/productsdetail'} className="bg-[#97ab4d] uppercase hover:bg-[#879a44] text-white px-10 py-4 rounded-full text-lg font-bold shadow-xl transition duration-300 hover:scale-105">
+                    shop now
+                  </Link>
                 </div>
 
                 {/* RIGHT CONTENT */}

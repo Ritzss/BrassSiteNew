@@ -112,7 +112,7 @@ export default function Home() {
               className="mx-auto my-2 rounded-3xl"
             />
             <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[50%] bg-white hover:bg-[#fff9]">
-              <Link href={`/productsdetail`} className="">
+              <Link href={`/category/bowls`} className="">
                 Bowls
               </Link>
             </div>
@@ -126,7 +126,7 @@ export default function Home() {
               className="mx-auto my-2 rounded-3xl"
             />
             <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[50%] bg-white hover:bg-[#fff9]">
-              <Link href={`/productsdetail`} className="">
+              <Link href={`/category/bottles`} className="">
                 Bottles
               </Link>
             </div>
@@ -140,7 +140,7 @@ export default function Home() {
               className="mx-auto my-2 rounded-3xl"
             />
             <div className="text-5xl text-center inter dark:text-[#889551] text-[#889551] shadow-[3.2px_3.2px_7px_#0009] mx-auto rounded-xl w-[50%] bg-white hover:bg-[#fff9]">
-              <Link href={`/productsNdetail`} className="">
+              <Link href={`/category/plates`} className="">
                 Plates
               </Link>
             </div>

@@ -26,7 +26,7 @@ export default function AnalyticsPage() {
           </h2>
 
           <p className="text-4xl font-bold mt-4">
-            $2.4L
+            $2.4K
           </p>
 
         </div>

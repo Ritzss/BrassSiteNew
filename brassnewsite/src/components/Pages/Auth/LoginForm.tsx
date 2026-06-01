@@ -78,7 +78,7 @@ export default function LoginForm() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       alert("Login Successful");
       if (res.data.user.role === "admin") {
-        router.push("/admin");
+        router.push("/");
       } else {
         router.push("/");
       }

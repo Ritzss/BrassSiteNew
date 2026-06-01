@@ -11,9 +11,15 @@ import {
   BarChart3,
   Settings,
   LogOut,
+  Home,
 } from "lucide-react";
 
 const links = [
+  {
+    name: "Home",
+    href: "/",
+    icon: Home ,
+  },
   {
     name: "Dashboard",
     href: "/admin",

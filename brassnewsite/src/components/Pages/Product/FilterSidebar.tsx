@@ -13,6 +13,7 @@ export type FiltersType = {
 type Props = {
   filters: FiltersType;
   setFilters: React.Dispatch<React.SetStateAction<FiltersType>>;
+  hideCategory?: boolean;
 };
 
 const filterSections = [
@@ -21,30 +22,46 @@ const filterSections = [
     title: "Price",
     options: ["$0 - $25", "$25 - $50", "$50 - $100", "$100+"],
   },
+
   {
     key: "category",
     title: "Category",
     options: ["bottles", "glasses", "plates", "bowls"],
   },
+
   {
     key: "capacity",
-    title: "Capacity",
+    title: "Capacity (in ml)",
     options: ["250", "500", "750", "1000"],
   },
+
   {
     key: "finish",
     title: "Finish",
     options: ["Hammered", "Matte", "Polished", "Antique"],
   },
+
   {
     key: "features",
     title: "Features",
-    options: ["Leak Proof", "Handcrafted", "Eco Friendly", "Ayurvedic"],
+    options: [
+      "Leak Proof",
+      "Handcrafted",
+      "Eco Friendly",
+      "Ayurvedic",
+    ],
   },
 ];
 
-const FilterSidebar = ({ filters, setFilters }: Props) => {
-  const handleChange = (section: keyof FiltersType, value: string) => {
+const FilterSidebar = ({
+  filters,
+  setFilters,
+  hideCategory = false,
+}: Props) => {
+  const handleChange = (
+    section: keyof FiltersType,
+    value: string,
+  ) => {
     setFilters((prev) => {
       const exists = prev[section].includes(value);
 
@@ -59,39 +76,53 @@ const FilterSidebar = ({ filters, setFilters }: Props) => {
   };
 
   return (
-    <aside className="hidden ml-5 my-15 rounded-2xl lg:block w-70 border-r border-black/10 sticky top-17.5 h-[calc(100vh-70px)] overflow-y-auto px-5 py-6 bg-[#889551] dark:bg-[#f4f2dd] dark:text-black text-white [&::-webkit-scrollbar]:hidden">
-      <h2 className="text-2xl font-semibold mb-6">Filters</h2>
+    <aside className="hidden ml-5 rounded-2xl lg:block w-70 border-r border-black/10 sticky top-17.5 h-[calc(100vh-70px)] overflow-y-auto px-5 py-6 bg-[#889551] dark:bg-[#f4f2dd] dark:text-black text-white [&::-webkit-scrollbar]:hidden">
 
-      {filterSections.map((section) => (
-        <div key={section.key} className="mb-6 border-b border-black/10 pb-4">
-          <button className="flex justify-between items-center w-full font-medium text-lg mb-3">
-            {section.title}
+      <h2 className="text-2xl font-semibold mb-6">
+        Filters
+      </h2>
 
-            <ChevronDown size={18} />
-          </button>
+      {filterSections
+        .filter(
+          (section) =>
+            !(hideCategory && section.key === "category"),
+        )
+        .map((section) => (
+          <div
+            key={section.key}
+            className="mb-6 border-b border-black/10 pb-4"
+          >
+            <button className="flex justify-between items-center w-full font-medium text-lg mb-3">
+              {section.title}
 
-          <div className="space-y-2 text-sm">
-            {section.options.map((item) => (
-              <label
-                key={item}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={filters[section.key as keyof FiltersType].includes(
-                    item,
-                  )}
-                  onChange={() =>
-                    handleChange(section.key as keyof FiltersType, item)
-                  }
-                />
+              <ChevronDown size={18} />
+            </button>
 
-                {item}
-              </label>
-            ))}
+            <div className="space-y-2 text-sm">
+              {section.options.map((item) => (
+                <label
+                  key={item}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    checked={filters[
+                      section.key as keyof FiltersType
+                    ].includes(item)}
+                    onChange={() =>
+                      handleChange(
+                        section.key as keyof FiltersType,
+                        item,
+                      )
+                    }
+                  />
+
+                  {item}
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </aside>
   );
 };

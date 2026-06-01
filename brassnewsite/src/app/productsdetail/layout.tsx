@@ -9,7 +9,7 @@ const layout = ({ children }: { children: ReactNode }) => {
     <div className="bg-[#f4f2dd] dark:bg-[#889551] text-black dark:text-black min-h-screen">
       {/* Navbar */}
 
-      <div className="hidden md:block">
+      <div className="hidden md:block sticky top-0 z-10">
         <Navbar />
       </div>
 {/* 
