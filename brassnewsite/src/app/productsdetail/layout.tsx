@@ -1,5 +1,5 @@
 import Footer from "@/components/Global/Footer";
-import Navbar, { MobileNavbar } from "@/components/Navigation/Navbar";
+import Navbar from "@/components/Navigation/Navbar";
 
 
 import { ReactNode } from "react";
@@ -12,10 +12,10 @@ const layout = ({ children }: { children: ReactNode }) => {
       <div className="hidden md:block">
         <Navbar />
       </div>
-
+{/* 
       <div className="block md:hidden">
         <MobileNavbar />
-      </div>
+      </div> */}
 
       {/* BREADCRUMB
 
