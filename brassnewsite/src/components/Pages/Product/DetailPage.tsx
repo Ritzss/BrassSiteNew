@@ -13,7 +13,7 @@ import {
 } from "react-icons/io";
 import { toast } from "sonner";
 import ProductCard from "./ProductCard";
-import ProductButton from "../Global/ProductButton";
+import ProductButton from "../../Global/ProductButton";
 // import CurvedCarousel from "../UI/CurvedCarousel";
 // import PipeSection from "../UI/CurvedCarousel";
 

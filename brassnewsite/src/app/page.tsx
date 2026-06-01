@@ -1,6 +1,6 @@
 import Footer from "@/components/Global/Footer";
 import HomeSlider from "@/components/Home/HomeSlider";
-import Navbar, { MobileNavbar } from "@/components/Navigation/Navbar";
+import Navbar from "@/components/Navigation/Navbar";
 import PipeSection from "@/components/UI/CurvedCarousel";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,9 +14,9 @@ export default function Home() {
       <div className="hidden md:block sticky top-0 z-30">
         <Navbar />
       </div>
-      <div className="block md:hidden">
+      {/* <div className="block md:hidden">
         <MobileNavbar />
-      </div>
+      </div> */}
 
       {/* Slider */}
       <div id="home" className="">

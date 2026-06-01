@@ -1,7 +1,6 @@
 import Footer from "@/components/Global/Footer";
 import Navbar, { MobileNavbar } from "@/components/Navigation/Navbar";
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
+
 
 import { ReactNode } from "react";
 
@@ -10,11 +9,11 @@ const layout = ({ children }: { children: ReactNode }) => {
     <div className="bg-[#f4f2dd] dark:bg-[#889551] text-black dark:text-black min-h-screen">
       {/* Navbar */}
 
-      <div className="hidden md:block sticky top-0 z-50">
+      <div className="hidden md:block">
         <Navbar />
       </div>
 
-      <div className="block md:hidden sticky top-0 z-50">
+      <div className="block md:hidden">
         <MobileNavbar />
       </div>
 

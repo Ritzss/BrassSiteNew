@@ -3,11 +3,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import ProductCard from "@/components/ProductPage/ProductCard";
+import ProductCard from "@/components/Pages/Product/ProductCard";
 
 import FilterSidebar, {
   FiltersType,
-} from "@/components/ProductPage/FilterSidebar";
+} from "@/components/Pages/Product/FilterSidebar";
 
 import { similarProducts } from "@/Demo/data/similarProduct";
 

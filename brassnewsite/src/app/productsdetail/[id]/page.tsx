@@ -1,4 +1,4 @@
-import DetailPage from "@/components/ProductPage/DetailPage";
+import DetailPage from "@/components/Pages/Product/DetailPage";
 import { similarProducts } from "@/Demo/data/similarProduct";
 import { notFound } from "next/navigation";
 

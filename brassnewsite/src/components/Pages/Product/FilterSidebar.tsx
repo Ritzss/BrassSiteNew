@@ -59,7 +59,7 @@ const FilterSidebar = ({ filters, setFilters }: Props) => {
   };
 
   return (
-    <aside className="hidden ml-5 rounded-2xl lg:block w-70 border-r border-black/10 sticky top-17.5 h-[calc(100vh-70px)] overflow-y-auto px-5 py-6 bg-[#ece8c9] dark:bg-[#f4f2dd] [&::-webkit-scrollbar]:hidden">
+    <aside className="hidden ml-5 my-15 rounded-2xl lg:block w-70 border-r border-black/10 sticky top-17.5 h-[calc(100vh-70px)] overflow-y-auto px-5 py-6 bg-[#889551] dark:bg-[#f4f2dd] dark:text-black text-white [&::-webkit-scrollbar]:hidden">
       <h2 className="text-2xl font-semibold mb-6">Filters</h2>
 
       {filterSections.map((section) => (
