@@ -54,7 +54,6 @@ const Navbar = () => {
               size={24}
               className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-[#889551] text-[#F4F2DD]"
             />
-
             <input
               type="text"
               placeholder="Search products..."
@@ -64,18 +63,16 @@ const Navbar = () => {
         </div>
 
         {/* NAV LINKS */}
-        <nav className="flex items-center gap-5 uppercase font-medium">
-          <Link href="/#home" className="hover:text-[#f4f2dd] transition">
+        <nav className="flex items-center gap-5 font-medium">
+          <Link href="/#home" className="dark:hover:text-[#f4f2dd] hover:text-[#889551] transition">
             Home
           </Link>
-
           <Link
             href="/productsdetail"
-            className="hover:text-[#f4f2dd] transition"
+            className="dark:hover:text-[#f4f2dd] hover:text-[#889551] transition"
           >
             Products
           </Link>
-
           {!user ? (
             <Link href="/auth" className="hover:text-[#f4f2dd] transition">
               Login / Register
@@ -83,17 +80,14 @@ const Navbar = () => {
           ) : (
             <div className="flex items-center gap-5">
               {user.role!=='admin' && <span className="capitalize">{user.name}</span>}
-
               {user.role === "admin" && (
                 <Link href="/admin" className="hover:text-[#f4f2dd]">
                   Admin
                 </Link>
               )}
-
               <button className="hover:scale-110 transition">
                 <FaCartArrowDown size={22} />
               </button>
-
               <button
                 onClick={handleLogout}
                 className="hover:text-red-300 transition"
@@ -119,25 +113,21 @@ const Navbar = () => {
                 menu ? "rotate-45 translate-y-1.5" : ""
               }`}
             />
-
             <span
               className={`block w-7 h-0.5 bg-white transition-all duration-300 ${
                 menu ? "-rotate-45 -translate-y-1.5" : ""
               }`}
             />
           </button>
-
           {/* LOGO */}
           <Link href="/" className="text-xl font-extrabold">
             LOGO
           </Link>
-
           {/* ICONS */}
           <div className="flex items-center gap-3">
             <button>
               <BiSearch size={28} />
             </button>
-
             <button>
               <FaCartArrowDown size={28} />
             </button>
@@ -154,18 +144,15 @@ const Navbar = () => {
             <Link href="/" className="px-5 py-4 border-b border-gray-200">
               Home
             </Link>
-
             <Link
               href="/productsdetail"
               className="px-5 py-4 border-b border-gray-200"
             >
               Products
             </Link>
-
             <button className="text-left px-5 py-4 border-b border-gray-200">
               Cart
             </button>
-
             {!user ? (
               <Link href="/auth" className="px-5 py-4 border-b border-gray-200">
                 Login / Register
@@ -175,7 +162,6 @@ const Navbar = () => {
                 <div className="px-5 py-4 border-b border-gray-200 capitalize">
                   {user.name}
                 </div>
-
                 {user.role === "admin" && (
                   <Link
                     href="/admin"
@@ -184,7 +170,6 @@ const Navbar = () => {
                     Admin
                   </Link>
                 )}
-
                 <button onClick={handleLogout} className="text-left px-5 py-4">
                   Logout
                 </button>

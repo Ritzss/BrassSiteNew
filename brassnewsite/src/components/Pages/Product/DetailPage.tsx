@@ -408,7 +408,7 @@ const DetailPage = ({
             className={`inter bg-[#e4e198] shadow-[0_4px_10px_#000000af] w-full lg:w-[48%] my-2 md:m-2 px-8 py-4 ${showDetails ? "rounded-4xl" : "rounded-2xl"}`}
           >
             <div
-              className={`${showDetails ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex justify-between items-center`}
+              className={`${showDetails ? "text-3xl mb-5" : "text-2xl"} md:text-3xl md:text-[#889551] flex justify-between items-center`}
               onClick={() => setShowDetails(!showDetails)}
             >
               Specifications
@@ -419,27 +419,27 @@ const DetailPage = ({
             <div
               className={`cursor-default overflow-hidden transition-all duration-500 ${showDetails ? "max-h-125 opacity-100" : "max-h-0 opacity-0"}`}
             >
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Material</div>
                 <div>{product?.details?.material}</div>
               </div>
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Capacity</div>
                 <div>{variantActive?.capacity}ml</div>
               </div>
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Finish</div>
                 <div>{product?.details?.finish}</div>
               </div>
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Weight</div>
                 <div>{variantActive?.weight}g</div>
               </div>
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Design</div>
                 <div>{product?.details?.design}</div>
               </div>
-              <div className="md:text-2xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
+              <div className="md:text-xl px-1 py-4 flex justify-between lg:hover:text-[#889551] transition-all duration-300 border-b">
                 <div>Sustainability</div>
                 <div>{product?.details?.sustainability}</div>
               </div>
@@ -449,7 +449,7 @@ const DetailPage = ({
             className={`bg-[#e4e198] inter ${showFeatures ? "rounded-4xl" : "rounded-2xl"} px-8 py-4 shadow-[0_4px_10px_#000000af]  w-full lg:w-[48%] my-2 md:m-2 p-4"`}
           >
             <div
-              className={`${showFeatures ? "text-3xl mb-5" : "text-2xl"} md:text-5xl md:text-[#889551] flex items-center justify-between`}
+              className={`${showFeatures ? "text-3xl mb-5" : "text-2xl"} md:text-3xl md:text-[#889551] flex items-center justify-between`}
               onClick={() => setShowFeatures(!showFeatures)}
             >
               Key Features{" "}
@@ -464,7 +464,7 @@ const DetailPage = ({
                 return (
                   <div
                     key={ind}
-                    className="flex md:text-2xl items-center group hover:text-[#889551] p-2 py-4 transition-colors duration-300"
+                    className="flex md:text-xl items-center group hover:text-[#889551] p-2 py-4 transition-colors duration-300"
                   >
                     <BsArrowReturnRight className="mr-3 text-black group-hover:text-[#889551] transition-colors duration-300" />
                     {feat}
@@ -474,11 +474,9 @@ const DetailPage = ({
             </div>
           </div>
         </div>
-      </div>
-
       {/* Care Instructions*/}
       <div
-        className=" shadow-[0_4px_10px_#000000af] inter rounded-2xl w-[80%] mx-auto bg-[#e4e198]"
+        className=" shadow-[0_4px_10px_#000000af] inter rounded-2xl w-[97%] mx-auto bg-[#e4e198]"
         onClick={() => setShowCare(!showCare)}
       >
         <div className="cursor-pointer flex items-center justify-between p-5 text-2xl">
@@ -505,6 +503,8 @@ const DetailPage = ({
           })}
         </div>
       </div>
+      </div>
+
 
       {/* Sustainability & Eco Impact */}
       <div>

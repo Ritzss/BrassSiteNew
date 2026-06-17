@@ -97,7 +97,7 @@
 
 .no-scrollbar {
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  scrollbar-width: 0;
 }
 
 /**  Media Devices Query */

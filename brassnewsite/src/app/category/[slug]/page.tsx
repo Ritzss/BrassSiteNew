@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import ProductCard from "@/components/Pages/Product/ProductCard";
 
@@ -14,6 +14,7 @@ import { similarProducts } from "@/Demo/data/similarProduct";
 const ITEMS_PER_LOAD = 10;
 
 import { useParams } from "next/navigation";
+import ProductQuickView from "@/components/Pages/Product/ProductQuickView";
 
 const Page = () => {
   const params = useParams();
@@ -147,6 +148,36 @@ const Page = () => {
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    console.log(selectedIndex, visibleProducts[selectedIndex ?? 0]?.Productid);
+  }, [selectedIndex, visibleProducts]);
+
+  const openProduct = (index: number) => {
+    setSelectedIndex(index);
+  };
+
+  const closeProduct = () => {
+    setSelectedIndex(null);
+  };
+
+  const nextProduct = useCallback(() => {
+    setSelectedIndex((prev) => {
+      if (prev === null) return 0;
+
+      return (prev + 1) % visibleProducts.length;
+    });
+  }, [visibleProducts.length]);
+
+  const prevProduct = useCallback(() => {
+    setSelectedIndex((prev) => {
+      if (prev === null) return 0;
+
+      return prev === 0 ? visibleProducts.length - 1 : prev - 1;
+    });
+  }, [visibleProducts.length]);
+
   return (
     <div className="flex">
       {/* SIDEBAR */}
@@ -177,8 +208,26 @@ const Page = () => {
 
         <div className="flex flex-wrap gap-3">
           {visibleProducts.map((prod, i) => (
-            <ProductCard key={`${prod.Productid}-${i}`} product={prod} />
+            <div
+              key={`${prod.Productid}-${i}`}
+              onClick={() => openProduct(i)}
+              className="cursor-pointer"
+            >
+              <ProductCard product={prod} />
+            </div>
           ))}
+        </div>
+
+        <div className="hidden md:block">
+          <ProductQuickView
+            product={
+              selectedIndex !== null ? visibleProducts[selectedIndex] : null
+            }
+            isOpen={selectedIndex !== null}
+            onClose={closeProduct}
+            onNext={nextProduct}
+            onPrev={prevProduct}
+          />
         </div>
 
         {/* EMPTY */}

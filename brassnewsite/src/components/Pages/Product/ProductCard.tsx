@@ -1,6 +1,6 @@
 import { Product } from "@/Types/Product";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { toast } from "sonner";
 
 const ProductCard = ({ product }: { product: Product }) => {
@@ -12,8 +12,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <div className="cursor-default p-4 inter shrink-0">
-      <Link
-        href={`/productsdetail/${product.Productid}`}
+      <div
         className="overflow-hidden rounded-t-3xl rounded-lg bg-[#e4e198] block"
       >
         <Image
@@ -45,7 +44,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             <div className="text-xl">${variant?.price}</div>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

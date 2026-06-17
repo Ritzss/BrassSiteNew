@@ -95,7 +95,6 @@ export default function HomeSlider() {
                   <h1 className="text-4xl md:text-6xl leading-tight font-serif mb-8">
                     {slide.title}
                   </h1>
-
                   <div className="space-y-5">
                     {slide.points?.map((point, index) => (
                       <div
@@ -103,7 +102,6 @@ export default function HomeSlider() {
                         className="flex items-center gap-4 text-lg md:text-[26px]"
                       >
                         <span className="text-2xl md:text-3xl">🍃</span>
-
                         <p>{point}</p>
                       </div>
                     ))}

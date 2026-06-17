@@ -13,22 +13,16 @@ export default function LoginForm() {
 
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-
     const pastedData = e.clipboardData.getData("text").trim();
-
     // ONLY NUMBERS
     if (!/^\d+$/.test(pastedData)) return;
-
     const pastedOtp = pastedData.slice(0, 6).split("");
-
     const newOtp = ["", "", "", "", "", ""];
-
     pastedOtp.forEach((digit, index) => {
       newOtp[index] = digit;
     });
 
     setOtp(newOtp);
-
     // FOCUS LAST FILLED
     const lastIndex = pastedOtp.length - 1;
 
@@ -36,7 +30,6 @@ export default function LoginForm() {
       inputs.current[lastIndex]?.focus();
     }
   };
-
   const sendOtp = async () => {
     try {
       setLoading(true);
@@ -89,19 +82,18 @@ export default function LoginForm() {
       setLoading(false);
     }
   };
+
   return (
     <div className="flex flex-col gap-5">
-      {" "}
       <input
         type="email"
         placeholder="Enter Email"
-        className=" border border-[#889551] dark:border-[#e4e198] bg-[#f4f2dd] dark:bg-[#889551] text-[#889551] dark:text-[#f4f2dd] placeholder:text-[#889551]/70 dark:placeholder:text-[#f4f2dd]/70 p-4 rounded-xl outline-none "
+        className=" border border-[#889551] dark:border-[#e4e198] bg-[#f4f2dd] dark:bg-[#889551] text-[#889551] dark:text-[#f4f2dd] placeholder:text-[#889551]/70 dark:placeholder:text-[#f4f2dd]/70 p-4 rounded-xl outline-none"
         value={email}
         onChange={(e) => setEmail(e.target.value.toLowerCase())}
-      />{" "}
+      />
       {otpSent && (
         <div className="flex justify-between gap-2">
-          {" "}
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -116,19 +108,18 @@ export default function LoginForm() {
               onChange={(e) => handleOtpChange(e.target.value, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               onPaste={handlePaste}
-              className=" w-12 h-14 text-center text-xl font-bold border border-[#889551] dark:border-[#e4e198] bg-[#f4f2dd] dark:bg-[#889551] text-[#889551] dark:text-[#f4f2dd] rounded-xl outline-none "
+              className=" w-12 h-14 text-center text-xl font-bold border border-[#889551] dark:border-[#e4e198] bg-[#f4f2dd] dark:bg-[#889551] text-[#889551] dark:text-[#f4f2dd] rounded-xl outline-none"
             />
-          ))}{" "}
+          ))}
         </div>
-      )}{" "}
+      )}
       {!otpSent ? (
         <button
           onClick={sendOtp}
           disabled={loading}
           className=" bg-[#889551] dark:bg-[#e4e198] text-[#f4f2dd] dark:text-[#889551] font-semibold p-4 rounded-xl "
         >
-          {" "}
-          {loading ? "Sending..." : "Send OTP"}{" "}
+          {loading ? "Sending..." : "Send OTP"}
         </button>
       ) : (
         <button
@@ -136,9 +127,9 @@ export default function LoginForm() {
           disabled={loading}
           className=" bg-[#889551] dark:bg-[#e4e198] text-[#f4f2dd] dark:text-[#889551] font-semibold p-4 rounded-xl "
         >
-          {loading ? "Verifying..." : "Verify OTP"}{" "}
+          {loading ? "Verifying..." : "Verify OTP"}
         </button>
-      )}{" "}
+      )}
     </div>
   );
 }
