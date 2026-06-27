@@ -2,6 +2,12 @@ import mongoose, { Schema, models, model } from "mongoose";
 
 const OrderSchema = new Schema(
   {
+    orderNumber: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CustomerUser",
@@ -17,7 +23,6 @@ const OrderSchema = new Schema(
 
         title: String,
 
-        // backward compatibility
         name: String,
 
         price: {
@@ -30,16 +35,44 @@ const OrderSchema = new Schema(
           required: true,
         },
 
-        // Drinkware / Hardware support
         capacity: Number,
 
         weight: Number,
+
+        image: String,
       },
     ],
+
+    subtotal: {
+      type: Number,
+      required: true,
+    },
+
+    shippingCharge: {
+      type: Number,
+      default: 0,
+    },
+
+    discount: {
+      type: Number,
+      default: 0,
+    },
 
     totalAmount: {
       type: Number,
       required: true,
+    },
+
+    paymentMethod: {
+      type: String,
+      enum: ["COD", "ONLINE"],
+      default: "COD",
+    },
+
+    paymentStatus: {
+      type: String,
+      enum: ["Pending", "Paid", "Failed"],
+      default: "Pending",
     },
 
     status: {
@@ -55,7 +88,12 @@ const OrderSchema = new Schema(
     },
 
     deliveryAddress: {
-      address: {
+      fullName: {
+        type: String,
+        required: true,
+      },
+
+      email: {
         type: String,
         required: true,
       },
@@ -64,7 +102,29 @@ const OrderSchema = new Schema(
         type: String,
         required: true,
       },
+
+      address: {
+        type: String,
+        required: true,
+      },
+
+      city: {
+        type: String,
+        required: true,
+      },
+
+      state: {
+        type: String,
+        required: true,
+      },
+
+      pincode: {
+        type: String,
+        required: true,
+      },
     },
+
+    notes: String,
   },
   {
     timestamps: true,

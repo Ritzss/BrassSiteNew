@@ -24,7 +24,7 @@ const product = {
       weight: 210,
       price: 21.99,
       color: "Antique Gold",
-      mrp: 16.99,
+      mrp: 70.99,
     },
     {
       images: [
@@ -36,7 +36,7 @@ const product = {
       weight: 380,
       price: 31.99,
       color: "Antique Gold",
-      mrp: 16.99,
+      mrp: 80.99,
     },
     {
       images: ["/Demo/Images/image.png", "/Demo/Images/image.png"],
@@ -44,7 +44,7 @@ const product = {
       weight: 280,
       price: 41.99,
       color: "Antique Gold",
-      mrp: 16.99,
+      mrp: 90.99,
     },
     {
       images: ["/Demo/Images/image.png"],
@@ -52,7 +52,7 @@ const product = {
       weight: 280,
       price: 51.99,
       color: "Antique Gold",
-      mrp: 16.99,
+      mrp: 100.99,
     },
   ],
 
@@ -218,7 +218,6 @@ const similarProduct3 = {
   },
  
 };
-
 
 export const similarProducts: Product[] = [
   ...Array.from({ length: 15 }, (_, i) => ({

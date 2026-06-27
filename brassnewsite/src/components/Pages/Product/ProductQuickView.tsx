@@ -462,7 +462,7 @@ useEffect(() => {
             )} */}
 
             <Link
-              href={`/product/${productId}`}
+              href={`/productsdetail/${productId}`}
               className="inline-flex items-center mt-5 gap-2 text-sm font-medium text-[#3d342d] hover:gap-3 transition-all"
             >
               Explore The Product
