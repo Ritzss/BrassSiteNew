@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -118,7 +119,7 @@ export default function SortDropdown({ sort, setSort }: SortDropdownProps) {
         id="sort-dropdown"
         className="
           fixed
-          z-[99998]
+          z-99998
           w-48
           overflow-hidden
           rounded-2xl
