@@ -14,7 +14,7 @@ interface ProductCardProps {
 
 const ProductCard = ({
   product,
-  index = 0,
+  // index = 0,
 }: ProductCardProps) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
 
