@@ -254,14 +254,7 @@ export default function FilterSidebar({
               <button
                 type="button"
                 onClick={clearAll}
-                className="
-                  text-[9px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-[#889551]
-                  transition
-                  hover:text-[#0E4001]
-                "
+                className=" text-[9px] uppercase tracking-[0.15em] text-[#889551] transition hover:text-[#0E4001]"
               >
                 Clear All
               </button>
