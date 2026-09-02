@@ -15,10 +15,10 @@ const product = {
   variants: [
     {
       images: [
-        "/Demo/Images/image.png",
-        "/Demo/Images/image.png",
-        "/Demo/Images/image.png",
-        "/Demo/Images/image.png",
+        "/Demo/Images/image2.png",
+        "/Demo/Images/image2.png",
+        "/Demo/Images/image2.png",
+        "/Demo/Images/image2.png",
       ],
       capacity: 250,
       weight: 210,
@@ -28,9 +28,9 @@ const product = {
     },
     {
       images: [
-        "/Demo/Images/image.png",
-        "/Demo/Images/image.png",
-        "/Demo/Images/image.png",
+        "/Demo/Images/image2.png",
+        "/Demo/Images/image2.png",
+        "/Demo/Images/image2.png",
       ],
       capacity: 500,
       weight: 380,
@@ -39,7 +39,7 @@ const product = {
       mrp: 80.99,
     },
     {
-      images: ["/Demo/Images/image.png", "/Demo/Images/image.png"],
+      images: ["/Demo/Images/image2.png", "/Demo/Images/image2.png"],
       capacity: 750,
       weight: 280,
       price: 41.99,
@@ -47,7 +47,7 @@ const product = {
       mrp: 90.99,
     },
     {
-      images: ["/Demo/Images/image.png"],
+      images: ["/Demo/Images/image2.png"],
       capacity: 1000,
       weight: 280,
       price: 51.99,
@@ -88,7 +88,7 @@ const similarProduct1 = {
     "Handcrafted from solid brass with a smooth polished finish. Perfect for serving water or traditional beverages while adding a timeless aesthetic to your tableware.",
   variants: [
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 300,
       weight: 220,
       price: 24.99,
@@ -96,7 +96,7 @@ const similarProduct1 = {
       mrp: 34.99,
     },
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 450,
       weight: 260,
       price: 29.99,
@@ -135,7 +135,7 @@ const similarProduct2 = {
     "Featuring a handcrafted hammered texture, this brass jug is ideal for storing and serving water while maintaining Ayurvedic wellness traditions.",
   variants: [
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 1200,
       weight: 650,
       price: 59.99,
@@ -143,7 +143,7 @@ const similarProduct2 = {
       mrp: 79.99,
     },
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 1500,
       weight: 720,
       price: 69.99,
@@ -182,7 +182,7 @@ const similarProduct3 = {
     "This handcrafted bottle blends brass durability with copper’s wellness properties, making it a stylish and health-conscious hydration solution.",
   variants: [
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 750,
       weight: 420,
       price: 54.99,
@@ -190,7 +190,7 @@ const similarProduct3 = {
       mrp: 74.99,
     },
     {
-      images: ["/Demo/image.png"],
+      images: ["/Demo/image2.png"],
       capacity: 1000,
       weight: 480,
       price: 64.99,
