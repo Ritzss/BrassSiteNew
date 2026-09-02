@@ -44,9 +44,7 @@ export default function FilterSidebar({
   const [mounted, setMounted] = useState(false);
   const [draftFilters, setDraftFilters] = useState<FiltersType>(filters);
 
-  const [openSections, setOpenSections] = useState<
-    Record<string, boolean>
-  >({
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     price: true,
     category: true,
     capacity: false,
@@ -106,10 +104,7 @@ export default function FilterSidebar({
     };
   }, [isOpen]);
 
-  const toggleFilter = (
-    type: keyof FiltersType,
-    value: string,
-  ) => {
+  const toggleFilter = (type: keyof FiltersType, value: string) => {
     setDraftFilters((current) => {
       const currentValues = current[type];
 
@@ -166,39 +161,24 @@ export default function FilterSidebar({
   const drawer =
     mounted &&
     createPortal(
-      <div className={`fixed inset-0 z-99999 ${isOpen  ? "pointer-events-auto"  : "pointer-events-none"}`}>
+      <div
+        className={`fixed inset-0 z-99999 ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+      >
         {/* BACKDROP */}
         <div
-          className={` absolute inset-0 bg-[#0E4001]/30 backdrop-blur-[2px] transition-opacity duration-300 ${isOpen ? "opacity-100" :"opacity-0" }`}
+          className={` absolute inset-0 bg-[#0E4001]/30 backdrop-blur-[2px] transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setIsOpen(false)}
         />
 
         {/* DRAWER */}
         <aside
           aria-hidden={!isOpen}
-          className={` absolute right-0 top-0 flex h-dvh w-full max-w-[390px] flex-col bg-[#F4F2DD] shadow-[-20px_0_70px_rgba(14,64,1,0.25)] transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full" }`}
+          className={` absolute right-0 top-0 flex h-dvh w-full max-w-[390px] flex-col bg-[#F4F2DD] shadow-[-20px_0_70px_rgba(14,64,1,0.25)] transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           {/* HEADER */}
-          <div
-            className="
-              flex
-              items-center
-              justify-between
-              border-b
-              border-[#0E4001]/10
-              px-6
-              py-6
-            "
-          >
+          <div className=" flex items-center justify-between border-b border-[#0E4001]/10 px-6 py-6">
             <div>
-              <p
-                className="
-                  text-[9px]
-                  uppercase
-                  tracking-[0.2em]
-                  text-[#889551]
-                "
-              >
+              <p className=" text-[9px] uppercase tracking-[0.2em] text-[#889551] ">
                 Refine Collection
               </p>
 
@@ -239,9 +219,9 @@ export default function FilterSidebar({
 
           {/* FILTER CONTENT */}
           <div className="flex-1 overflow-y-auto px-6 py-4">
-            {(Object.keys(filterOptions) as Array<
-              keyof typeof filterOptions
-            >).map((type) => {
+            {(
+              Object.keys(filterOptions) as Array<keyof typeof filterOptions>
+            ).map((type) => {
               if (type === "category" && hideCategory) {
                 return null;
               }
@@ -285,11 +265,7 @@ export default function FilterSidebar({
                         text-[#889551]
                         transition-transform
                         duration-200
-                        ${
-                          openSections[type]
-                            ? "rotate-180"
-                            : ""
-                        }
+                        ${openSections[type] ? "rotate-180" : ""}
                       `}
                     />
                   </button>
@@ -297,10 +273,7 @@ export default function FilterSidebar({
                   {openSections[type] && (
                     <div className="mt-4 space-y-3">
                       {options.map((option) => {
-                        const checked =
-                          draftFilters[type].includes(
-                            option,
-                          );
+                        const checked = draftFilters[type].includes(option);
 
                         return (
                           <label
@@ -317,12 +290,7 @@ export default function FilterSidebar({
                             <input
                               type="checkbox"
                               checked={checked}
-                              onChange={() =>
-                                toggleFilter(
-                                  type,
-                                  option,
-                                )
-                              }
+                              onChange={() => toggleFilter(type, option)}
                               className="
                                 h-4
                                 w-4
@@ -424,9 +392,7 @@ export default function FilterSidebar({
         "
       >
         <FiFilter size={12} />
-
         Filter
-
         {activeCount > 0 && (
           <span
             className="
