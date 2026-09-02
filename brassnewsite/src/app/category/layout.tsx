@@ -1,26 +1,22 @@
 import Footer from "@/components/Global/Footer";
 import Navbar from "@/components/Navigation/Navbar";
-
 import { ReactNode } from "react";
 
-const layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="bg-[#f4f2dd] dark:bg-[#889551] text-black dark:text-black min-h-screen">
-
-      {/* Navbar */}
-      <div className="hidden md:block sticky top-0 z-10">
+    <div className="min-h-screen bg-[#F4F2DD] text-[#0E4001]">
+      {/* Desktop navigation */}
+      <div className="sticky top-0 z-50 hidden md:block">
         <Navbar />
       </div>
 
-      {/* Main */}
-      <div className="min-h-screen">
-        {children}
-      </div>
+      {/* Page content */}
+      <main className="min-h-screen">{children}</main>
 
-      {/* Footer */}
+      {/* Global footer */}
       <Footer />
     </div>
   );
 };
 
-export default layout;
+export default Layout;

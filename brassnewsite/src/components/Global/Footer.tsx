@@ -1,100 +1,296 @@
+import Link from "next/link";
 import {
-  FaFacebook,
+  FaFacebookF,
   FaInstagram,
-  FaLinkedin,
-  FaPinterest,
+  FaLinkedinIn,
+  FaPinterestP,
+  FaXTwitter,
   FaYoutube,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+} from "react-icons/fa6";
 
 const Footer = () => {
-  const Information = ["About Us", "Support", "Connect", "Shop"];
-
-  const customerCare = [
-    "Return Policy",
-    "Shipping Policy",
-    "Information",
-    "Location",
-  ];
-
-  const socialIcons = [
-    {
-      name: "LinkedIn",
-      element: <FaLinkedin />,
-      color: "hover:text-[#0077B5]",
-    },
-    {
-      name: "Facebook",
-      element: <FaFacebook />,
-      color: "hover:text-[#1877F2]",
-    },
-    {
-      name: "Instagram",
-      element: <FaInstagram />,
-      color: "hover:text-[#E4405F]",
-    },
-    { 
-      name: "Twitter",
-      element: <FaXTwitter />,
-      color: "hover:text-black" 
-    },
-    {
-      name: "Pinterest",
-      element: <FaPinterest />,
-      color: "hover:text-[#BD081C]",
-    },
-    { 
-      name: "Youtube",
-      element: <FaYoutube />,
-      color: "hover:text-[#FF0000]" 
-    },
-  ];
-
   return (
-    <footer className="min-h-[50vh] cursor-default mt-50 bg-[#889551] dark:bg-[#e4e198] ">
-      <div className="h-90 w-[90%] mx-auto flex justify-between text-[#f4f2dd] dark:text-[#889551]">
-        {/* Information */}
-        <div className="md:w-[28%]">
-          {Information.map((item, ind) => {
-            return (
-              <div
-                key={ind}
-                className="text-[#f4f2dd] dark:text-[#889551] hover:underline text-2xl flex justify-center m-2 py-4"
-              >
-                {item}
-              </div>
-            );
-          })}
-        </div>
-        {/* Customer Care */}
-        <div className="md:w-[28%]">
-          {customerCare.map((item, ind) => {
-            return (
-              <div
-                key={ind}
-                className="text-[#f4f2dd] dark:text-[#889551] hover:underline text-2xl flex justify-center m-2 py-4"
-              >
-                {item}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      {/* Social Icons */}
-      <div className="flex justify-center gap-3 text-5xl py-2">
-        {socialIcons?.map((sIcons, ind) => {
-          return (
-            <span
-              key={ind}
-              className={`text-[#f4f2dd] dark:text-[#889551] transition-colors ${sIcons.color}`}
+    <footer className="relative overflow-hidden bg-[#0E4001] text-[#F4F2DD]">
+      {/* Decorative background elements */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-32
+          -top-32
+          h-80
+          w-80
+          rounded-full
+          border
+          border-[#E4E198]/10
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          bottom-[-160px]
+          h-96
+          w-96
+          rounded-full
+          border
+          border-[#889551]/20
+        "
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+        {/* =====================================================
+            TOP BRAND SECTION
+            ===================================================== */}
+        <div className="grid gap-12 border-b border-[#E4E198]/15 pb-14 md:grid-cols-[1.5fr_1fr_1fr]">
+          {/* Brand */}
+          <div className="max-w-md">
+            <Link
+              href="/"
+              className="
+                font-serif
+                text-3xl
+                italic
+                tracking-[0.12em]
+                text-[#E4E198]
+              "
             >
-              {sIcons.element}
-            </span>
-          );
-        })}
-      </div>
-      <div className=" flex w-[90%] text-center mx-auto justify-center text-xl border-t-3 text-[#f4f2dd] dark:text-[#889551]">
-        &copy; 2026 &quot;BrandName&quot; . All rights reserved.
+              &quot;brandName&quot;
+            </Link>
+
+            <p
+              className="
+                mt-6
+                max-w-sm
+                text-sm
+                leading-7
+                text-[#F4F2DD]/65
+              "
+            >
+              Timeless brassware crafted for everyday rituals,
+              meaningful gatherings and spaces that deserve a
+              little more character.
+            </p>
+
+            <div className="mt-7 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#E4E198]" />
+              <span
+                className="
+                  text-[9px]
+                  uppercase
+                  tracking-[0.28em]
+                  text-[#E4E198]
+                "
+              >
+                Pure Brass
+              </span>
+            </div>
+          </div>
+
+          {/* Information */}
+          <div>
+            <h3
+              className="
+                mb-6
+                text-[10px]
+                uppercase
+                tracking-[0.25em]
+                text-[#E4E198]
+              "
+            >
+              Information
+            </h3>
+
+            <nav className="flex flex-col gap-3 text-sm text-[#F4F2DD]/65">
+              <Link
+                href="/about"
+                className="transition hover:text-[#E4E198]"
+              >
+                About Us
+              </Link>
+
+              <Link
+                href="/support"
+                className="transition hover:text-[#E4E198]"
+              >
+                Support
+              </Link>
+
+              <Link
+                href="/contact"
+                className="transition hover:text-[#E4E198]"
+              >
+                Contact
+              </Link>
+
+              <Link
+                href="/location"
+                className="transition hover:text-[#E4E198]"
+              >
+                Our Location
+              </Link>
+            </nav>
+          </div>
+
+          {/* Customer Care */}
+          <div>
+            <h3
+              className="
+                mb-6
+                text-[10px]
+                uppercase
+                tracking-[0.25em]
+                text-[#E4E198]
+              "
+            >
+              Customer Care
+            </h3>
+
+            <nav className="flex flex-col gap-3 text-sm text-[#F4F2DD]/65">
+              <Link
+                href="/return-policy"
+                className="transition hover:text-[#E4E198]"
+              >
+                Return Policy
+              </Link>
+
+              <Link
+                href="/shipping-policy"
+                className="transition hover:text-[#E4E198]"
+              >
+                Shipping Policy
+              </Link>
+
+              <Link
+                href="/information"
+                className="transition hover:text-[#E4E198]"
+              >
+                Product Information
+              </Link>
+
+              <Link
+                href="/collection"
+                className="transition hover:text-[#E4E198]"
+              >
+                Shop Collection
+              </Link>
+            </nav>
+          </div>
+        </div>
+
+        {/* =====================================================
+            SOCIAL + BRAND STATEMENT
+            ===================================================== */}
+        <div
+          className="
+            flex
+            flex-col
+            gap-8
+            border-b
+            border-[#E4E198]/15
+            py-8
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
+          <div className="flex items-center gap-3">
+            {[
+              {
+                label: "LinkedIn",
+                icon: <FaLinkedinIn size={13} />,
+              },
+              {
+                label: "Facebook",
+                icon: <FaFacebookF size={13} />,
+              },
+              {
+                label: "Instagram",
+                icon: <FaInstagram size={13} />,
+              },
+              {
+                label: "X",
+                icon: <FaXTwitter size={13} />,
+              },
+              {
+                label: "Pinterest",
+                icon: <FaPinterestP size={13} />,
+              },
+              {
+                label: "YouTube",
+                icon: <FaYoutube size={13} />,
+              },
+            ].map((social) => (
+              <button
+                key={social.label}
+                type="button"
+                aria-label={social.label}
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#E4E198]/20
+                  text-[#E4E198]
+                  transition-all
+                  duration-300
+                  hover:border-[#E4E198]
+                  hover:bg-[#E4E198]
+                  hover:text-[#0E4001]
+                "
+              >
+                {social.icon}
+              </button>
+            ))}
+          </div>
+
+          <div
+            className="
+              flex
+              flex-wrap
+              gap-x-6
+              gap-y-2
+              text-[9px]
+              uppercase
+              tracking-[0.2em]
+              text-[#F4F2DD]/45
+            "
+          >
+            <span>Traditional Craft</span>
+            <span>Pure Brass</span>
+            <span>Modern Living</span>
+          </div>
+        </div>
+
+        {/* =====================================================
+            BOTTOM
+            ===================================================== */}
+        <div
+          className="
+            flex
+            flex-col
+            gap-3
+            pt-7
+            text-[10px]
+            uppercase
+            tracking-[0.15em]
+            text-[#F4F2DD]/40
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
+          <p>© 2026 &quot;brandName&quot;. All rights reserved.</p>
+
+          <p>
+            Crafted with tradition.
+          </p>
+        </div>
       </div>
     </footer>
   );

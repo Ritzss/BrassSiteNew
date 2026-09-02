@@ -9,27 +9,28 @@ const slides = [
     id: 1,
     image: "/Assets/slides/brass-5.png",
     title: "Benefits of Brass",
+    eyebrow: "01 / Wellness",
     points: ["Boosts Immunity", "Promotes Digestion", "Balances pH Levels"],
   },
-
   {
     id: 2,
     image: "/Assets/slides/brass-6.png",
     title: "Traditional Elegance",
+    eyebrow: "02 / Craft",
     points: ["Premium Finish", "Handcrafted Design", "Luxury Dining"],
   },
-
   {
     id: 3,
     image: "/Assets/slides/brass-7.png",
     title: "Pure Brass Craft",
+    eyebrow: "03 / Material",
     points: ["Minimal Aesthetic", "Durable Material", "Timeless Style"],
   },
-
   {
     id: 4,
     image: "/Assets/slides/brass-8.png",
     title: "Classic Collection",
+    eyebrow: "04 / Collection",
     points: ["Elegant Serving", "Traditional Touch", "Premium Quality"],
   },
 ];
@@ -37,11 +38,10 @@ const slides = [
 export default function HomeSlider() {
   const [current, setCurrent] = useState(0);
 
-  // AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -55,89 +55,111 @@ export default function HomeSlider() {
   };
 
   return (
-    <section className="w-full">
-      <div className="relative w-full h-200 overflow-hidden rounded-[30px]">
-        {/* SLIDER TRACK */}
+    <section className="relative w-full">
+      <div className="relative h-[600px] w-full overflow-hidden rounded-[2rem] bg-[#0E4001] sm:h-[660px] lg:h-[710px]">
         <div
-          className="flex h-full transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${current * 100}%)`,
-          }}
+          className="flex h-full transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)]"
+          style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div
+            <article
               key={slide.id}
-              className="min-w-full h-full relative flex items-center"
+              className="relative flex h-full min-w-full items-end overflow-hidden"
             >
-              {/* BACKGROUND IMAGE */}
               <Image
                 src={slide.image}
                 alt={slide.title}
                 fill
-                priority
+                priority={slide.id === 1}
+                sizes="(max-width: 768px) 100vw, 88vw"
                 className="object-cover"
               />
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-linear-to-r from-black/50 to-black/10" />
+              {/* Green-tinted editorial overlays keep the brand palette
+                  present even when the source photography varies. */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0E4001]/70 via-[#0E4001]/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E4001]/65 via-transparent to-transparent" />
 
-              {/* CONTENT WRAPPER */}
-              <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-20">
-                {/* LEFT BUTTON */}
-                <div className="flex items-end h-full pb-20">
-                  <Link href={'/productsdetail'} className="bg-[#97ab4d] uppercase hover:bg-[#879a44] text-white px-10 py-4 rounded-full text-lg font-bold shadow-xl transition duration-300 hover:scale-105">
-                    shop now
+              <div className="relative z-10 flex w-full flex-col justify-between gap-8 px-7 pb-24 pt-12 text-[#F4F2DD] sm:px-12 lg:flex-row lg:items-end lg:px-16 lg:pb-28">
+                <div className="max-w-xs">
+                  <p className="mb-5 text-[9px] uppercase tracking-[0.25em] text-[#E4E198]/85">
+                    {slide.eyebrow}
+                  </p>
+
+                  <p className="font-serif text-3xl italic leading-tight">
+                    &quot;brandName&quot;
+                  </p>
+
+                  <Link
+                    href="/productsdetail"
+                    className="group mt-7 inline-flex items-center gap-4 rounded-full bg-[#889551] px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F4F2DD] shadow-lg transition duration-300 hover:scale-[1.03] hover:bg-[#0E4001]"
+                  >
+                    Shop now
+                    <span className="transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
                   </Link>
                 </div>
 
-                {/* RIGHT CONTENT */}
-                <div className="max-w-175 text-white">
-                  <h1 className="text-4xl md:text-6xl leading-tight font-serif mb-8">
+                <div className="max-w-lg lg:max-w-[470px]">
+                  <h2 className="font-serif text-4xl italic leading-[1] sm:text-6xl">
                     {slide.title}
-                  </h1>
-                  <div className="space-y-5">
-                    {slide.points?.map((point, index) => (
+                  </h2>
+
+                  <div className="mt-7 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                    {slide.points.map((point, index) => (
                       <div
-                        key={index}
-                        className="flex items-center gap-4 text-lg md:text-[26px]"
+                        key={point}
+                        className="flex items-center gap-3 border-t border-[#E4E198]/25 pt-3 text-sm text-[#F4F2DD]/85"
                       >
-                        <span className="text-2xl md:text-3xl">🍃</span>
+                        <span className="font-serif text-xs italic text-[#E4E198]/80">
+                          0{index + 1}
+                        </span>
                         <p>{point}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* LEFT ARROW */}
         <button
+          type="button"
+          aria-label="Previous slide"
           onClick={prevSlide}
-          className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 text-5xl md:text-6xl text-white hover:scale-110 transition"
+          className="absolute left-4 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#E4E198]/35 bg-[#0E4001]/25 text-3xl text-[#F4F2DD] backdrop-blur-sm transition hover:bg-[#0E4001]/60 sm:left-6"
         >
           ‹
         </button>
 
-        {/* RIGHT ARROW */}
         <button
+          type="button"
+          aria-label="Next slide"
           onClick={nextSlide}
-          className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 text-5xl md:text-6xl text-white hover:scale-110 transition"
+          className="absolute right-4 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#E4E198]/35 bg-[#0E4001]/25 text-3xl text-[#F4F2DD] backdrop-blur-sm transition hover:bg-[#0E4001]/60 sm:right-6"
         >
           ›
         </button>
 
-        {/* DOTS */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-          {slides.map((_, index) => (
+        <div className="absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 items-center gap-3">
+          {slides.map((slide, index) => (
             <button
-              key={index}
+              type="button"
+              key={slide.id}
+              aria-label={`Go to slide ${index + 1}`}
               onClick={() => setCurrent(index)}
-              className={`transition-all duration-300 rounded-full ${
-                current === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
-              }`}
-            />
+              className="group flex h-5 items-center"
+            >
+              <span
+                className={`block h-1 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "w-10 bg-[#E4E198]"
+                    : "w-5 bg-[#F4F2DD]/45 group-hover:bg-[#E4E198]/70"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

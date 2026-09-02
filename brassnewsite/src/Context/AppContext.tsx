@@ -25,35 +25,30 @@ type AppContextType = {
   addToCart: (
     productId: string,
     capacity: number,
-    color: string,
+    qty: string,
   ) => void;
 
   removeFromCart: (
     productId: string,
     capacity: number,
-    color: string,
+    qty: string,
   ) => void;
 
   addToCollection: (productId: string) => void;
   removeFromCollection: (productId: string) => void;
 };
 
-const AppContext = createContext<AppContextType | null>(
-  null,
-);
+const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(
-    [],
-  );
+  
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const [favCollections, setFavCollections] = useState<
-    FavouriteItem[]
-  >([]);
+  const [favCollections, setFavCollections] = useState<FavouriteItem[]>([]);
 
   const addToCart = (
     productId: string,
