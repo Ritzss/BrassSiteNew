@@ -104,27 +104,19 @@ const DetailPage = ({
           Green gradually transitions into warm ivory.
       ===================================================== */}
 
-      <div className=" fixed inset-0 -z-20 bg-[linear-gradient(180deg, #0E4001_0%, #294F1E_9%, #627746_20%, #A5A36C_34%, #D6D39A_50%, #ECE8C5_68%, #F4F2DD_84%, #F4F2DD_100%)]"/>
+      <div className=" fixed inset-0 -z-20 bg-[linear-gradient(180deg, #0E4001_0%, #294F1E_9%, #627746_20%, #A5A36C_34%, #D6D39A_50%, #ECE8C5_68%, #F4F2DD_84%, #F4F2DD_100%)]" />
 
       {/* Soft atmospheric light */}
 
-      <div className=" pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%, rgba(244,242,221,0.30), transparent_46% )]"/>
+      <div className=" pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%, rgba(244,242,221,0.30), transparent_46% )]" />
 
       {/* =====================================================
           BREADCRUMB
       ===================================================== */}
 
-      <nav className="mx-auto max-w-[1600px] px-4 pt-20 sm:px-8 lg:px-12">
+      <nav className="mx-auto max-w-400 px-4 pt-20 sm:px-8 lg:px-12">
         <ol
-          className="
-            flex
-            flex-wrap
-            items-center
-            gap-2
-            text-[9px]
-            uppercase
-            tracking-[0.16em]
-            text-[#F4F2DD]/70
+          className=" flex flex-wrap items-center gap-2 text-[9px] uppercase tracking-[0.16em] text-[#F4F2DD]/70
           "
         >
           <li>
@@ -146,7 +138,7 @@ const DetailPage = ({
 
           <li>/</li>
 
-          <li className="max-w-[220px] truncate text-[#E4E198]">
+          <li className="max-w-55 truncate text-[#E4E198]">
             {product?.name || "Product"}
           </li>
         </ol>
@@ -156,12 +148,12 @@ const DetailPage = ({
           MAIN PRODUCT EXPERIENCE
       ===================================================== */}
 
-      <section className="mx-auto mt-5 max-w-[1600px] px-4 sm:px-8 lg:px-12">
+      <section className="mx-auto mt-5 max-w-400 px-4 sm:px-8 lg:px-12">
         <div
           className="
             relative
             overflow-hidden
-            rounded-[32px]
+            rounded-4xl
             border
             border-[#E4E198]/30
             bg-[#0E4001]/70
@@ -181,9 +173,9 @@ const DetailPage = ({
               absolute
               inset-0
               z-0
-              rounded-[32px]
-              bg-gradient-to-br
-              from-white/[0.10]
+              rounded-4xl
+              bg-linear-to-br
+              from-white/10
               via-transparent
               to-[#E4E198]/[0.07]
             "
@@ -227,8 +219,8 @@ const DetailPage = ({
               absolute
               left-1/2
               top-1/2
-              h-[500px]
-              w-[500px]
+              h-125
+              w-125
               -translate-x-1/2
               -translate-y-1/2
               rounded-full
@@ -248,7 +240,7 @@ const DetailPage = ({
               h-72
               w-72
               rounded-full
-              bg-[#E4E198]/[0.06]
+              bg-[#E4E198]/6
               blur-3xl
             "
           />
@@ -277,7 +269,7 @@ const DetailPage = ({
                 justify-center
                 border-t
                 border-[#E4E198]/15
-                bg-white/[0.025]
+                bg-white/2.5
                 p-7
                 backdrop-blur-md
                 sm:p-10
@@ -301,7 +293,7 @@ const DetailPage = ({
               <h1
                 className="
                   mt-4
-                  max-w-[420px]
+                  max-w-105
                   font-serif
                   text-4xl
                   leading-[0.95]
@@ -442,26 +434,26 @@ const DetailPage = ({
               className="
                 order-1
                 flex
-                min-h-[480px]
+                min-h-120
                 items-center
                 justify-center
-                bg-white/[0.015]
+                bg-white/1.5
                 px-5
                 py-8
-                sm:min-h-[600px]
+                sm:min-h-150
                 sm:px-10
                 lg:order-2
-                lg:min-h-[720px]
+                lg:min-h-180
               "
             >
               <div
                 className="
                   relative
-                  h-[460px]
+                  h-115
                   w-full
-                  max-w-[580px]
-                  sm:h-[570px]
-                  lg:h-[650px]
+                  max-w-145
+                  sm:h-142.5
+                  lg:h-162.5
                 "
               >
                 {/* Image glow */}
@@ -625,7 +617,7 @@ const DetailPage = ({
                 justify-center
                 border-t
                 border-[#E4E198]/15
-                bg-white/[0.025]
+                bg-white/2.5
                 p-7
                 backdrop-blur-md
                 sm:p-10
@@ -787,7 +779,7 @@ const DetailPage = ({
           PRODUCT HIGHLIGHTS
       ===================================================== */}
 
-      <section className="mx-auto mt-5 max-w-[1600px] px-4 sm:px-8 lg:px-12">
+      <section className="mx-auto mt-5 max-w-400 px-4 sm:px-8 lg:px-12">
         <div
           className="
             grid
@@ -822,7 +814,7 @@ const DetailPage = ({
             <div
               key={item.title}
               className={`
-                min-h-[150px]
+                min-h-37.5
                 border-[#0E4001]/10
                 p-6
                 sm:p-8
@@ -846,7 +838,7 @@ const DetailPage = ({
       ===================================================== */}
 
       {images.length > 0 && (
-        <section className="mx-auto mt-20 max-w-[1600px] px-4 sm:px-8 lg:px-12">
+        <section className="mx-auto mt-20 max-w-400 px-4 sm:px-8 lg:px-12">
           <div className="mb-8">
             <p className="text-[9px] uppercase tracking-[0.25em] text-[#0E4001]/60">
               Crafted In Detail
@@ -873,7 +865,7 @@ const DetailPage = ({
                   className="
                     group
                     relative
-                    aspect-[4/5]
+                    aspect-4/5
                     overflow-hidden
                     rounded-[28px]
                     border
@@ -941,7 +933,7 @@ const DetailPage = ({
           HEALTH & WELLNESS
       ===================================================== */}
 
-      <section className="mx-auto mt-24 max-w-[1400px] px-4 sm:px-8">
+      <section className="mx-auto mt-24 max-w-350 px-4 sm:px-8">
         <div className="text-center">
           <p className="text-[9px] uppercase tracking-[0.25em] text-[#0E4001]/60">
             Traditional Wellness
@@ -1035,7 +1027,7 @@ const DetailPage = ({
           WHY BRASS
       ===================================================== */}
 
-      <section className="mx-auto mt-24 max-w-[1400px] px-4 sm:px-8">
+      <section className="mx-auto mt-24 max-w-350 px-4 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <p className="text-[9px] uppercase tracking-[0.25em] text-[#0E4001]/60">
@@ -1081,7 +1073,7 @@ const DetailPage = ({
           <div
             className="
               relative
-              min-h-[420px]
+              min-h-105
               overflow-hidden
               rounded-[30px]
               border
@@ -1104,7 +1096,7 @@ const DetailPage = ({
           PRODUCT DETAILS
       ===================================================== */}
 
-      <section className="mx-auto mt-24 max-w-[1400px] px-4 sm:px-8">
+      <section className="mx-auto mt-24 max-w-350 px-4 sm:px-8">
         <div className="text-center">
           <p className="text-[9px] uppercase tracking-[0.25em] text-[#0E4001]/60">
             Specifications
@@ -1173,7 +1165,7 @@ const DetailPage = ({
                 duration-500
                 ${
                   showDetails
-                    ? "max-h-[600px] pb-7 opacity-100"
+                    ? "max-h-150 pb-7 opacity-100"
                     : "max-h-0 opacity-0"
                 }
               `}
@@ -1262,7 +1254,7 @@ const DetailPage = ({
                 duration-500
                 ${
                   showFeatures
-                    ? "max-h-[600px] pb-7 opacity-100"
+                    ? "max-h-150 pb-7 opacity-100"
                     : "max-h-0 opacity-0"
                 }
               `}
@@ -1339,7 +1331,7 @@ const DetailPage = ({
               duration-500
               ${
                 showCare
-                  ? "max-h-[600px] pb-7 opacity-100"
+                  ? "max-h-150 pb-7 opacity-100"
                   : "max-h-0 opacity-0"
               }
             `}
@@ -1371,7 +1363,7 @@ const DetailPage = ({
           SUSTAINABILITY
       ===================================================== */}
 
-      <section className="mx-auto mt-24 max-w-[1400px] px-4 sm:px-8">
+      <section className="mx-auto mt-24 max-w-350 px-4 sm:px-8">
         <div
           className="
             overflow-hidden
@@ -1410,7 +1402,7 @@ const DetailPage = ({
               mx-auto
               mt-10
               max-w-4xl
-              rounded-[24px]
+              rounded-3xl
               border
               border-[#E4E198]/20
               bg-[#E4E198]/10
@@ -1432,7 +1424,7 @@ const DetailPage = ({
       ===================================================== */}
 
       <section className="relative py-20 sm:py-24">
-        <div className="mx-auto max-w-[1600px] px-4 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-400 px-4 sm:px-8 lg:px-12">
           {/* Section heading */}
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
