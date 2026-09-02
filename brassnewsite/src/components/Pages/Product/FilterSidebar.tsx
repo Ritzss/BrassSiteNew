@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -165,55 +166,17 @@ export default function FilterSidebar({
   const drawer =
     mounted &&
     createPortal(
-      <div
-        className={`
-          fixed inset-0 z-[99999]
-          ${
-            isOpen
-              ? "pointer-events-auto"
-              : "pointer-events-none"
-          }
-        `}
-      >
+      <div className={`fixed inset-0 z-99999 ${isOpen  ? "pointer-events-auto"  : "pointer-events-none"}`}>
         {/* BACKDROP */}
         <div
-          className={`
-            absolute inset-0
-            bg-[#0E4001]/30
-            backdrop-blur-[2px]
-            transition-opacity duration-300
-            ${
-              isOpen
-                ? "opacity-100"
-                : "opacity-0"
-            }
-          `}
+          className={` absolute inset-0 bg-[#0E4001]/30 backdrop-blur-[2px] transition-opacity duration-300 ${isOpen ? "opacity-100" :"opacity-0" }`}
           onClick={() => setIsOpen(false)}
         />
 
         {/* DRAWER */}
         <aside
           aria-hidden={!isOpen}
-          className={`
-            absolute
-            right-0
-            top-0
-            flex
-            h-dvh
-            w-full
-            max-w-[390px]
-            flex-col
-            bg-[#F4F2DD]
-            shadow-[-20px_0_70px_rgba(14,64,1,0.25)]
-            transition-transform
-            duration-300
-            ease-out
-            ${
-              isOpen
-                ? "translate-x-0"
-                : "translate-x-full"
-            }
-          `}
+          className={` absolute right-0 top-0 flex h-dvh w-full max-w-[390px] flex-col bg-[#F4F2DD] shadow-[-20px_0_70px_rgba(14,64,1,0.25)] transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full" }`}
         >
           {/* HEADER */}
           <div

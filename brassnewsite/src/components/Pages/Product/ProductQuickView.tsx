@@ -11,7 +11,7 @@ import { X, ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { RiHeartFill } from "react-icons/ri";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Product } from "@/Types/Product";
 import { useAppContext } from "@/Context/AppContext";
@@ -157,14 +157,14 @@ const ProductQuickView = ({
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0E4001]/80 p-2 backdrop-blur-md md:p-6"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-[#0E4001]/80 p-2 backdrop-blur-md md:p-6"
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative grid h-[95dvh] w-full max-w-7xl grid-cols-1 overflow-hidden rounded-[2rem] border border-[#E4E198]/30 bg-[#F4F2DD] shadow-[0_30px_100px_rgba(14,64,1,.45)] md:grid-cols-[45%_55%]"
+        className="relative grid h-[95dvh] w-full max-w-7xl grid-cols-1 overflow-hidden rounded-4xl border border-[#E4E198]/30 bg-[#F4F2DD] shadow-[0_30px_100px_rgba(14,64,1,.45)] md:grid-cols-[45%_55%]"
       >
         <button
           onClick={onClose}
@@ -207,7 +207,7 @@ const ProductQuickView = ({
             </>
           )}
 
-          <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0E4001]/55 via-transparent to-transparent" />
+          <div className="absolute inset-0 z-20 bg-linear-to-t from-[#0E4001]/55 via-transparent to-transparent" />
 
           <div className="absolute bottom-5 left-5 z-30">
             <p className="text-[9px] uppercase tracking-[0.25em] text-[#E4E198]/80">
