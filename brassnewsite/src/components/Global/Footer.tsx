@@ -31,7 +31,7 @@ const Footer = () => {
           pointer-events-none
           absolute
           -left-40
-          bottom-[-160px]
+          -bottom-40
           h-96
           w-96
           rounded-full

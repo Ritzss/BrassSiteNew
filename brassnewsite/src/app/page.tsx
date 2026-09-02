@@ -50,7 +50,7 @@ export default function Home() {
         {/* Soft brass/green atmosphere */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-52 -top-56 h-[700px] w-[700px] rounded-full blur-3xl"
+          className="pointer-events-none absolute -left-52 -top-56 h-175 w-175 rounded-full blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(228,225,152,.22) 0%, transparent 68%)",
@@ -58,7 +58,7 @@ export default function Home() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-56 top-[25%] h-[720px] w-[720px] rounded-full blur-3xl"
+          className="pointer-events-none absolute -right-56 top-[25%] h-180 w-180 rounded-full blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(14,64,1,.34) 0%, transparent 68%)",
@@ -73,7 +73,7 @@ export default function Home() {
             className="
     h-20
       mx-auto
-      max-w-[1600px]
+      max-w-400
       overflow-hidden
       rounded-full
       border
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-9 max-w-[1600px] px-4 sm:mt-14 sm:px-8 lg:mt-16 lg:px-14">
+        <div className="relative mx-auto mt-9 max-w-400 px-4 sm:mt-14 sm:px-8 lg:mt-16 lg:px-14">
           <div className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-[#F4F2DD]/75">
             <span className="h-px w-8 bg-[#E4E198]/70" />
             &quot;brandName&quot; / Brass Collection
@@ -98,7 +98,7 @@ export default function Home() {
                 functional hero rather than being replaced. */}
             <div
               className="
-                relative z-10 ml-0 overflow-hidden rounded-[2rem]
+                relative z-10 ml-0 overflow-hidden rounded-4xl
                 border border-[#E4E198]/25
                 bg-[#0E4001]/20
                 shadow-[0_55px_120px_-45px_rgba(14,64,1,.75)]
@@ -169,7 +169,7 @@ export default function Home() {
         id="benefits"
         className="bg-[#F4F2DD] px-5 py-24 sm:px-8 sm:py-32 lg:px-14"
       >
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-[#0E4001]/55">
@@ -189,12 +189,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-[2rem] border border-[#0E4001]/10 bg-[#0E4001]/10 md:grid-cols-3">
+          <div className="mt-16 grid gap-px overflow-hidden rounded-4xl border border-[#0E4001]/10 bg-[#0E4001]/10 md:grid-cols-3">
             {benefits.map((item) => (
               <article
                 key={item.number}
                 className="
-                  group relative min-h-[350px] overflow-hidden
+                  group relative min-h-87.5 overflow-hidden
                   bg-[#889551] p-7
                   transition-colors duration-500 hover:bg-[#0E4001]
                   sm:p-9
@@ -237,7 +237,7 @@ export default function Home() {
         id="category"
         className="bg-[#E4E198] px-5 py-24 sm:px-8 sm:py-32 lg:px-14"
       >
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           <div className="mb-14 flex items-end justify-between gap-5">
             <div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-[#0E4001]/55">
@@ -257,7 +257,7 @@ export default function Home() {
           <div className="grid gap-4 lg:grid-cols-[1.15fr_.85fr]">
             <Link
               href="/category/bowls"
-              className="group relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[#0E4001] shadow-[0_30px_70px_-40px_rgba(14,64,1,.65)]"
+              className="group relative min-h-130 overflow-hidden rounded-4xl bg-[#0E4001] shadow-[0_30px_70px_-40px_rgba(14,64,1,.65)]"
             >
               <Image
                 src="/Demo/Images/image.png"
@@ -267,7 +267,7 @@ export default function Home() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E4001]/90 via-[#0E4001]/15 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0E4001]/90 via-[#0E4001]/15 to-transparent" />
 
               <div className="absolute bottom-8 left-8 text-[#F4F2DD] sm:bottom-10 sm:left-10">
                 <span className="text-[10px] uppercase tracking-[0.22em] text-[#E4E198]/80">
@@ -290,7 +290,7 @@ export default function Home() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               <Link
                 href="/category/bottles"
-                className="group relative min-h-[250px] overflow-hidden rounded-[2rem] bg-[#889551]"
+                className="group relative min-h-62.5 overflow-hidden rounded-4xl bg-[#889551]"
               >
                 <Image
                   src="/Demo/Images/image.png"
@@ -300,7 +300,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E4001]/80 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0E4001]/80 to-transparent" />
 
                 <div className="absolute bottom-6 left-7 text-[#F4F2DD]">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[#E4E198]/80">
@@ -312,7 +312,7 @@ export default function Home() {
 
               <Link
                 href="/category/plates"
-                className="group relative min-h-[250px] overflow-hidden rounded-[2rem] bg-[#889551]"
+                className="group relative min-h-62.5 overflow-hidden rounded-4xl bg-[#889551]"
               >
                 <Image
                   src="/Demo/Images/image.png"
@@ -322,7 +322,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E4001]/80 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0E4001]/80 to-transparent" />
 
                 <div className="absolute bottom-6 left-7 text-[#F4F2DD]">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[#E4E198]/80">
@@ -343,7 +343,7 @@ export default function Home() {
         id="bestseller"
         className="bg-[#F4F2DD] px-5 py-24 sm:px-8 sm:py-32 lg:px-14"
       >
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-[#0E4001]/55">

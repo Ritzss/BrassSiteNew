@@ -27,8 +27,8 @@ export default function AuthPage() {
           absolute
           -left-32
           -top-32
-          h-[420px]
-          w-[420px]
+          h-105
+          w-105
           rounded-full
           border
           border-[#E4E198]/20
@@ -43,8 +43,8 @@ export default function AuthPage() {
           absolute
           -bottom-40
           -right-32
-          h-[500px]
-          w-[500px]
+          h-125
+          w-125
           rounded-full
           border
           border-[#F4F2DD]/20
@@ -59,7 +59,7 @@ export default function AuthPage() {
           className="
             w-full
             overflow-hidden
-            rounded-[32px]
+            rounded-4xl
             border
             border-[#E4E198]/30
             bg-[#0E4001]/75
@@ -77,11 +77,11 @@ export default function AuthPage() {
               pointer-events-none
               absolute
               inset-0
-              rounded-[32px]
-              bg-gradient-to-br
-              from-white/[0.10]
+              rounded-4xl
+              bg-linear-to-br
+              from-white/10
               via-transparent
-              to-[#E4E198]/[0.08]
+              to-[#E4E198]/8
             "
           />
 

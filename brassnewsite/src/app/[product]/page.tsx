@@ -27,14 +27,6 @@ const sortLabels: Record<SortOption, string> = {
   name: "Name",
 };
 
-const categories = [
-  { label: "All", value: "all" },
-  { label: "Bowls", value: "bowls" },
-  { label: "Bottles", value: "bottles" },
-  { label: "Plates", value: "plates" },
-  { label: "Glasses", value: "glasses" },
-];
-
 type FilterState = {
   category: string[];
   capacity: string[];

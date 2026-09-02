@@ -164,7 +164,7 @@ export default function LoginForm() {
             transition
             duration-300
             focus:border-[#E4E198]/60
-            focus:bg-white/[0.10]
+            focus:bg-white/10
             focus:ring-2
             focus:ring-[#E4E198]/10
           "
@@ -222,7 +222,7 @@ export default function LoginForm() {
                   transition
                   duration-300
                   focus:border-[#E4E198]/70
-                  focus:bg-white/[0.12]
+                  focus:bg-white/12
                   focus:ring-2
                   focus:ring-[#E4E198]/10
                   sm:text-xl

@@ -56,7 +56,7 @@ export default function HomeSlider() {
 
   return (
     <section className="relative w-full">
-      <div className="relative h-[600px] w-full overflow-hidden rounded-[2rem] bg-[#0E4001] sm:h-[660px] lg:h-[710px]">
+      <div className="relative h-150 w-full overflow-hidden rounded-4xl bg-[#0E4001] sm:h-165 lg:h-177.5">
         <div
           className="flex h-full transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)]"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -77,8 +77,8 @@ export default function HomeSlider() {
 
               {/* Green-tinted editorial overlays keep the brand palette
                   present even when the source photography varies. */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0E4001]/70 via-[#0E4001]/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E4001]/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#0E4001]/70 via-[#0E4001]/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#0E4001]/65 via-transparent to-transparent" />
 
               <div className="relative z-10 flex w-full flex-col justify-between gap-8 px-7 pb-24 pt-12 text-[#F4F2DD] sm:px-12 lg:flex-row lg:items-end lg:px-16 lg:pb-28">
                 <div className="max-w-xs">
@@ -101,8 +101,8 @@ export default function HomeSlider() {
                   </Link>
                 </div>
 
-                <div className="max-w-lg lg:max-w-[470px]">
-                  <h2 className="font-serif text-4xl italic leading-[1] sm:text-6xl">
+                <div className="max-w-lg lg:max-w-117.5">
+                  <h2 className="font-serif text-4xl italic leading-none sm:text-6xl">
                     {slide.title}
                   </h2>
 

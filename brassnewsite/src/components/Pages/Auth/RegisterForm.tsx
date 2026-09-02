@@ -119,7 +119,7 @@ export default function RegisterForm() {
             transition
             duration-300
             focus:border-[#E4E198]/60
-            focus:bg-white/[0.10]
+            focus:bg-white/10
             focus:ring-2
             focus:ring-[#E4E198]/10
           "
@@ -165,7 +165,7 @@ export default function RegisterForm() {
             transition
             duration-300
             focus:border-[#E4E198]/60
-            focus:bg-white/[0.10]
+            focus:bg-white/10
             focus:ring-2
             focus:ring-[#E4E198]/10
           "
@@ -213,7 +213,7 @@ export default function RegisterForm() {
               transition
               duration-300
               focus:border-[#E4E198]/60
-              focus:bg-white/[0.10]
+              focus:bg-white/10
               focus:ring-2
               focus:ring-[#E4E198]/10
             "

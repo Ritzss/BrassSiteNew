@@ -66,7 +66,7 @@ const Navbar = () => {
           ========================================================= */}
       <header
         className={`
-          fixed inset-x-0 top-0 z-[100]
+          fixed inset-x-0 top-0 z-100
           hidden md:block
           border-b
           transition-all duration-500
@@ -88,9 +88,9 @@ const Navbar = () => {
       >
         <div
           className={`
-            mx-auto flex h-[72px] items-center justify-between
+            mx-auto flex h-18 items-center justify-between
             px-6 transition-all duration-500 lg:px-10
-            ${scrolled ? "h-[64px]" : "h-[72px]"}
+            ${scrolled ? "h-16" : "h-18"}
           `}
         >
           {/* Logo */}
@@ -271,7 +271,7 @@ const Navbar = () => {
           ========================================================= */}
       <header
         className={`
-          fixed inset-x-0 top-0 z-[100]
+          fixed inset-x-0 top-0 z-100
           md:hidden
           border-b
           transition-all duration-500
@@ -291,7 +291,7 @@ const Navbar = () => {
           }
         `}
       >
-        <div className="flex h-[68px] items-center justify-between px-5">
+        <div className="flex h-17 items-center justify-between px-5">
           {/* Menu button */}
           <button
             type="button"
@@ -305,7 +305,7 @@ const Navbar = () => {
                 block h-px w-7
                 bg-[#E4E198]
                 transition-all duration-300
-                ${menu ? "translate-y-[3px] rotate-45" : ""}
+                ${menu ? "translate-y-0.75 rotate-45" : ""}
               `}
             />
 
@@ -314,7 +314,7 @@ const Navbar = () => {
                 block h-px w-7
                 bg-[#E4E198]
                 transition-all duration-300
-                ${menu ? "-translate-y-[2px] -rotate-45" : ""}
+                ${menu ? "-translate-y-0.5 -rotate-45" : ""}
               `}
             />
           </button>
@@ -326,7 +326,7 @@ const Navbar = () => {
               font-serif
               text-lg
               italic
-              tracking-[0.1em]
+              tracking-widest
               text-[#E4E198]
             "
           >
@@ -379,7 +379,7 @@ const Navbar = () => {
             duration-300
             ${
               menu
-                ? "max-h-[600px] opacity-100"
+                ? "max-h-150 opacity-100"
                 : "max-h-0 opacity-0"
             }
           `}

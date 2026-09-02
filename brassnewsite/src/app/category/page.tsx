@@ -45,7 +45,7 @@ export default function CategoryPage() {
           className="
             relative
             overflow-hidden
-            rounded-[32px]
+            rounded-4xl
             bg-[#0E4001]
             px-6
             py-16
@@ -127,7 +127,7 @@ export default function CategoryPage() {
           CATEGORY COLLECTION
       ========================================================= */}
       <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           {/* Section heading */}
           <div className="mb-10 flex items-end justify-between">
             <div>

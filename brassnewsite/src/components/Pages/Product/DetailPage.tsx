@@ -1497,14 +1497,14 @@ const DetailPage = ({
               <div
                 key={item.Productid}
                 className="
-            w-[260px]
-            min-w-[260px]
+            w-65
+            min-w-65
             shrink-0
             snap-start
-            sm:w-[300px]
-            sm:min-w-[300px]
-            lg:w-[330px]
-            lg:min-w-[330px]
+            sm:w-75
+            sm:min-w-75
+            lg:w-82.5
+            lg:min-w-82.5
           "
               >
                 <ProductCard product={item} />
