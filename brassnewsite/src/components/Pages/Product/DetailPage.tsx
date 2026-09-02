@@ -98,52 +98,17 @@ const DetailPage = ({
   };
 
   return (
-    <main
-      className="
-    min-h-screen
-    text-[#0E4001]
-    bg-[linear-gradient(180deg,#0E4001_0%,#294F1E_10%,#627746_22%,#A5A36C_36%,#D6D39A_52%,#ECE8C5_70%,#F4F2DD_88%,#F4F2DD_100%)]
-  "
-    >
+    <main className=" min-h-screen text-[#0E4001] bg-[linear-gradient(180deg,#0E4001_0%,#294F1E_10%,#627746_22%,#A5A36C_36%,#D6D39A_52%,#ECE8C5_70%,#F4F2DD_88%,#F4F2DD_100%)]">
       {/* =====================================================
           PAGE BACKGROUND
           Green gradually transitions into warm ivory.
       ===================================================== */}
 
-      <div
-        className="
-          fixed
-          inset-0
-          -z-20
-          bg-[linear-gradient(
-            180deg,
-            #0E4001_0%,
-            #294F1E_9%,
-            #627746_20%,
-            #A5A36C_34%,
-            #D6D39A_50%,
-            #ECE8C5_68%,
-            #F4F2DD_84%,
-            #F4F2DD_100%
-          )]
-        "
-      />
+      <div className=" fixed inset-0 -z-20 bg-[linear-gradient(180deg, #0E4001_0%, #294F1E_9%, #627746_20%, #A5A36C_34%, #D6D39A_50%, #ECE8C5_68%, #F4F2DD_84%, #F4F2DD_100%)]"/>
 
       {/* Soft atmospheric light */}
 
-      <div
-        className="
-          pointer-events-none
-          fixed
-          inset-0
-          -z-10
-          bg-[radial-gradient(
-            circle_at_50%_40%,
-            rgba(244,242,221,0.30),
-            transparent_46%
-          )]
-        "
-      />
+      <div className=" pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_40%, rgba(244,242,221,0.30), transparent_46% )]"/>
 
       {/* =====================================================
           BREADCRUMB
