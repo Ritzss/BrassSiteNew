@@ -229,7 +229,10 @@ export default function FilterSidebar({
                         const checked = draftFilters[type].includes(option);
 
                         return (
-                          <label key={option} className=" flex cursor-pointer items-center gap-3 text-sm text-[#0E4001]/70 ">
+                          <label
+                            key={option}
+                            className=" flex cursor-pointer items-center gap-3 text-sm text-[#0E4001]/70 "
+                          >
                             <input
                               type="checkbox"
                               checked={checked}
@@ -262,18 +265,7 @@ export default function FilterSidebar({
               <button
                 type="button"
                 onClick={applyFilters}
-                className="
-                  rounded-full
-                  bg-[#0E4001]
-                  px-6
-                  py-3
-                  text-[9px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-[#F4F2DD]
-                  transition
-                  hover:bg-[#1a560b]
-                "
+                className=" rounded-full bg-[#0E4001] px-6 py-3 text-[9px] uppercase tracking-[0.15em] text-[#F4F2DD] transition hover:bg-[#1a560b]"
               >
                 Apply Filters
               </button>
@@ -290,41 +282,12 @@ export default function FilterSidebar({
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="
-          flex
-          items-center
-          gap-2
-          rounded-full
-          border
-          border-[#0E4001]/10
-          bg-white/60
-          px-4
-          py-2.5
-          text-[9px]
-          uppercase
-          tracking-[0.15em]
-          text-[#0E4001]
-          transition
-          hover:bg-[#E4E198]/30
-        "
+        className=" flex items-center gap-2 rounded-full border border-[#0E4001]/10 bg-white/60 px-4 py-2.5 text-[9px] uppercase tracking-[0.15em] text-[#0E4001] transition hover:bg-[#E4E198]/30"
       >
         <FiFilter size={12} />
         Filter
         {activeCount > 0 && (
-          <span
-            className="
-              flex
-              h-4
-              min-w-4
-              items-center
-              justify-center
-              rounded-full
-              bg-[#0E4001]
-              px-1
-              text-[8px]
-              text-white
-            "
-          >
+          <span className=" flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0E4001] px-1 text-[8px] text-white">
             {activeCount}
           </span>
         )}
