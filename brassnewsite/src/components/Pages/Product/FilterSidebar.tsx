@@ -173,7 +173,7 @@ export default function FilterSidebar({
         {/* DRAWER */}
         <aside
           aria-hidden={!isOpen}
-          className={` absolute right-0 top-0 flex h-dvh w-full max-w-[390px] flex-col bg-[#F4F2DD] shadow-[-20px_0_70px_rgba(14,64,1,0.25)] transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+          className={` absolute right-0 top-0 flex h-dvh w-full max-w-97.5 flex-col bg-[#F4F2DD] shadow-[-20px_0_70px_rgba(14,64,1,0.25)] transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           {/* HEADER */}
           <div className=" flex items-center justify-between border-b border-[#0E4001]/10 px-6 py-6">
@@ -181,37 +181,15 @@ export default function FilterSidebar({
               <p className=" text-[9px] uppercase tracking-[0.2em] text-[#889551] ">
                 Refine Collection
               </p>
-
-              <h2
-                className="
-                  mt-1
-                  font-serif
-                  text-2xl
-                  italic
-                  text-[#0E4001]
-                "
-              >
+              <h2 className=" mt-1 font-serif text-2xl italic text-[#0E4001] ">
                 Filters
               </h2>
             </div>
-
             <button
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Close filters"
-              className="
-                flex
-                h-9
-                w-9
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-[#0E4001]/10
-                text-[#0E4001]
-                transition
-                hover:bg-[#E4E198]/40
-              "
+              className=" flex h-9 w-9 items-center justify-center rounded-full border border-[#0E4001]/10 text-[#0E4001] transition hover:bg-[#E4E198]/40"
             >
               <FiX size={16} />
             </button>
@@ -229,44 +207,19 @@ export default function FilterSidebar({
               const options = filterOptions[type];
 
               return (
-                <div
-                  key={type}
-                  className="
-                    border-b
-                    border-[#0E4001]/10
-                    py-5
-                  "
-                >
+                <div key={type} className=" border-b border-[#0E4001]/10 py-5 ">
                   <button
                     type="button"
                     onClick={() => toggleSection(type)}
-                    className="
-                      flex
-                      w-full
-                      items-center
-                      justify-between
-                    "
+                    className=" flex w-full items-center justify-between"
                   >
-                    <span
-                      className="
-                        text-[9px]
-                        font-medium
-                        uppercase
-                        tracking-[0.2em]
-                        text-[#0E4001]
-                      "
-                    >
+                    <span className=" text-[9px] font-medium uppercase tracking-[0.2em] text-[#0E4001] ">
                       {sectionLabels[type]}
                     </span>
 
                     <FiChevronDown
                       size={14}
-                      className={`
-                        text-[#889551]
-                        transition-transform
-                        duration-200
-                        ${openSections[type] ? "rotate-180" : ""}
-                      `}
+                      className={` text-[#889551] transition-transform duration-200 ${openSections[type] ? "rotate-180" : ""}`}
                     />
                   </button>
 
@@ -276,33 +229,12 @@ export default function FilterSidebar({
                         const checked = draftFilters[type].includes(option);
 
                         return (
-                          <label
-                            key={option}
-                            className="
-                              flex
-                              cursor-pointer
-                              items-center
-                              gap-3
-                              text-sm
-                              text-[#0E4001]/70
-                            "
-                          >
+                          <label key={option} className=" flex cursor-pointer items-center gap-3 text-sm text-[#0E4001]/70 ">
                             <input
                               type="checkbox"
                               checked={checked}
                               onChange={() => toggleFilter(type, option)}
-                              className="
-                                h-4
-                                w-4
-                                appearance-none
-                                rounded
-                                border
-                                border-[#0E4001]/20
-                                bg-transparent
-                                checked:border-[#0E4001]
-                                checked:bg-[#0E4001]
-                                focus:ring-0
-                              "
+                              className=" h-4 w-4 appearance-none rounded border border-[#0E4001]/20 bg-transparent checked:border-[#0E4001] checked:bg-[#0E4001] focus:ring-0"
                             />
 
                             <span>{option}</span>
@@ -317,15 +249,7 @@ export default function FilterSidebar({
           </div>
 
           {/* FOOTER ACTIONS */}
-          <div
-            className="
-              border-t
-              border-[#0E4001]/10
-              bg-[#F4F2DD]
-              px-6
-              py-5
-            "
-          >
+          <div className=" border-t border-[#0E4001]/10 bg-[#F4F2DD] px-6 py-5">
             <div className="flex items-center justify-between gap-3">
               <button
                 type="button"
