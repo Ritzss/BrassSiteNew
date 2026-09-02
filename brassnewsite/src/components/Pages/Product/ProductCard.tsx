@@ -329,7 +329,7 @@ const accentColor = darkBackgrounds.includes(
                     tracking-[0.18em]
                   "
                   style={{
-                    color: theme.accent,
+                    color: accentColor,
                   }}
                 >
                   Brass Product

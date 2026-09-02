@@ -82,7 +82,7 @@ const similarProduct1 = {
   name: "Pure Brass Tumbler",
   description:
     "A traditional brass tumbler crafted for daily hydration. Inspired by Ayurvedic practices, it helps maintain the natural purity and alkalinity of drinking water.",
-  category: "bottles",
+  category: "plates",
   subcategory: "Brass Tumblers",
   D_discription:
     "Handcrafted from solid brass with a smooth polished finish. Perfect for serving water or traditional beverages while adding a timeless aesthetic to your tableware.",
