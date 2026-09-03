@@ -19,6 +19,7 @@ const product = {
         "/Demo/Images/image2.png",
         "/Demo/Images/image2.png",
         "/Demo/Images/image2.png",
+        "/Demo/image2.png",
       ],
       capacity: 250,
       weight: 210,

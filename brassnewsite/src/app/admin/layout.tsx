@@ -7,20 +7,25 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex bg-[#f4f2dd] dark:bg-[#889551]">
+    <div className="min-h-screen bg-[#F4F2DD] text-[#0E4001]">
+      <div className="flex min-h-screen">
+        {/* Desktop navigation */}
+        <Sidebar />
 
-      <Sidebar />
+        {/* Main application area */}
+        <div className="flex min-w-0 flex-1 flex-col">
+          <Topbar />
 
-      <div className="flex-1 flex flex-col">
-
-        <Topbar />
-
-        <main className="p-6 overflow-y-auto">
-          {children}
-        </main>
-
+          {/* 
+            Children already contain their own page-level
+            semantic elements, so this remains a div rather
+            than nesting another <main>.
+          */}
+          <div className="min-w-0 flex-1 overflow-y-auto">
+            {children}
+          </div>
+        </div>
       </div>
-
     </div>
   );
 }

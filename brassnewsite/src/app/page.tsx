@@ -1,4 +1,6 @@
 import Footer from "@/components/Global/Footer";
+import TestimonialsSection from "@/components/Home/TestimonialsSection";
+import VideosSection from "@/components/Home/VideosSection";
 import HomeSlider from "@/components/Home/HomeSlider";
 import Navbar from "@/components/Navigation/Navbar";
 import CurvedCarousel from "@/components/UI/CurvedCarousel";
@@ -396,7 +398,20 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+       </section>
+
+      {/* =========================================================
+          TESTIMONIALS
+          Reads active testimonials directly from MongoDB.
+          ========================================================= */}
+      <TestimonialsSection />
+
+      {/* =========================================================
+          VIDEOS
+          Reads active videos directly from MongoDB.
+          ========================================================= */}
+      <VideosSection />
+
       <Footer />
     </main>
   );
