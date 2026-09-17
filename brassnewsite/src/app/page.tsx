@@ -258,7 +258,7 @@ export default function Home() {
 
           <div className="grid gap-4 lg:grid-cols-[1.15fr_.85fr]">
             <Link
-              href="/category/bowls"
+              href="/category/bottles"
               className="group relative min-h-130 overflow-hidden rounded-4xl bg-[#0E4001] shadow-[0_30px_70px_-40px_rgba(14,64,1,.65)]"
             >
               <Image
@@ -277,7 +277,7 @@ export default function Home() {
                 </span>
 
                 <h3 className="mt-2 font-serif text-5xl italic sm:text-6xl">
-                  Bowls
+                  Bottles
                 </h3>
 
                 <span className="mt-5 inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.2em]">
@@ -291,7 +291,7 @@ export default function Home() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               <Link
-                href="/category/bottles"
+                href="/category/bowls"
                 className="group relative min-h-62.5 overflow-hidden rounded-4xl bg-[#889551]"
               >
                 <Image
@@ -308,7 +308,7 @@ export default function Home() {
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[#E4E198]/80">
                     Collection 02
                   </span>
-                  <h3 className="mt-1 font-serif text-4xl italic">Bottles</h3>
+                  <h3 className="mt-1 font-serif text-4xl italic">Bowls</h3>
                 </div>
               </Link>
 

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import { Product } from "@/Types/Product";
+import { useAppContext } from "@/Context/AppContext";
 
 interface ProductCardProps {
   product: Product;
@@ -17,7 +18,7 @@ const ProductCard = ({
   // index = 0,
 }: ProductCardProps) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
-
+  const { addToCart } = useAppContext();
   const variants = product?.variants || [];
   const variant = variants[selectedVariant] || variants[0];
 
@@ -117,13 +118,27 @@ const accentColor = darkBackgrounds.includes(
    * Add to cart.
    */
   const handleAddToCart = (
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    event.preventDefault();
-    event.stopPropagation();
+  event: React.MouseEvent<HTMLButtonElement>,
+) => {
+  event.preventDefault();
+  event.stopPropagation();
 
-    toast.success("Product Added to Cart");
-  };
+  // Add the currently selected product variant to the
+  // shared cart context. The selected capacity and color
+  // uniquely identify the variant in the cart.
+  if (!variant) {
+    toast.error("This product variant is unavailable.");
+    return;
+  }
+
+  addToCart(
+    String(product.Productid),
+    Number(variant.capacity),
+    String(variant.color),
+  );
+
+  toast.success("Product Added to Cart");
+};
 
   /*
    * Change variant without navigating to the PDP.

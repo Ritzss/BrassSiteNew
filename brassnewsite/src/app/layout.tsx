@@ -6,6 +6,7 @@ import { AppProvider } from "@/Context/AppContext";
 import PWARegistration from "@/components/mobile/PWARegistration";
 import MobileBottomNav from "@/components/Navigation/MobileBottomNav";
 import PWAInstallPrompt from "@/components/mobile/PWAInstallPrompt";
+import { icons } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Brass",
   description: "Premium brass products for modern living.",
+  icons:"/Assets/Icons/icon-192.png",
   applicationName: "Brass",
   appleWebApp: {
     capable: true,

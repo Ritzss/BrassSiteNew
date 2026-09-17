@@ -1,29 +1,21 @@
-const CACHE_VERSION = "brass-pwa-v2";
-const STATIC_CACHE = `${CACHE_VERSION}-static`;
-const IMAGE_CACHE = `${CACHE_VERSION}-images`;
-const PAGE_CACHE = `${CACHE_VERSION}-pages`;
-
-// Keep this intentionally small.
-// We do not cache API responses, checkout, payments, or auth data.
-const APP_SHELL = ["/"];
+const CACHE_NAME = "brass-pwa-v4";
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE).then((cache) => cache.addAll(APP_SHELL))
-  );
-
+  // Activate the new service worker immediately.
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => !key.startsWith(CACHE_VERSION))
-          .map((key) => caches.delete(key))
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE_NAME)
+            .map((key) => caches.delete(key))
+        )
       )
-    )
   );
 
   self.clients.claim();
@@ -31,53 +23,92 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
+  const url = new URL(request.url);
 
-  // Only cache normal GET requests.
+  // We only handle GET requests.
   if (request.method !== "GET") {
     return;
   }
 
-  const url = new URL(request.url);
-
-  // Never cache API requests.
-  if (url.pathname.startsWith("/api/")) {
-    return;
-  }
-
-  // Never interfere with Next.js internal requests.
-  if (url.pathname.startsWith("/_next/")) {
-    return;
-  }
-
-  // External requests such as YouTube should remain network-only.
+  // Only cache requests belonging to our own application.
   if (url.origin !== self.location.origin) {
     return;
   }
 
-  // Images use cache-first because they rarely need to change
-  // during the same browsing session.
+  // API data must always remain live.
+  // This prevents stale products, orders, authentication,
+  // testimonials, videos, etc. from being served from cache.
+  if (url.pathname.startsWith("/api/")) {
+    return;
+  }
+
+  // Browser/dev-server internals should not be cached.
   if (
-    request.destination === "image" ||
-    /\.(png|jpg|jpeg|webp|avif|gif|svg)$/i.test(url.pathname)
+    url.pathname.startsWith("/_next/webpack-hmr") ||
+    url.pathname.includes("__nextjs")
   ) {
-    event.respondWith(cacheFirst(request, IMAGE_CACHE));
     return;
   }
 
-  // HTML/navigation requests use network-first.
-  // This keeps the storefront fresh when online while still
-  // allowing previously visited pages to work offline.
+  // ---------------------------------------------------------
+  // PAGE NAVIGATION
+  // ---------------------------------------------------------
+  //
+  // Online:
+  //   Network → Cache
+  //
+  // Offline:
+  //   Cache → Homepage fallback
+  //
   if (request.mode === "navigate") {
-    event.respondWith(networkFirst(request, PAGE_CACHE));
+    event.respondWith(networkFirstPage(request));
     return;
   }
 
-  // Everything else uses network-first.
-  event.respondWith(networkFirst(request, STATIC_CACHE));
+  // ---------------------------------------------------------
+  // STATIC ASSETS / IMAGES / CSS / JS
+  // ---------------------------------------------------------
+  //
+  // These are cached after being successfully downloaded.
+  // This is what prevents the "HTML but no styling" problem.
+  //
+  event.respondWith(cacheAssets(request));
 });
 
-async function cacheFirst(request, cacheName) {
-  const cache = await caches.open(cacheName);
+async function networkFirstPage(request) {
+  const cache = await caches.open(CACHE_NAME);
+
+  try {
+    const response = await fetch(request);
+
+    if (response.ok) {
+      await cache.put(request, response.clone());
+    }
+
+    return response;
+  } catch {
+    // Try the exact page first.
+    const cachedPage = await cache.match(request);
+
+    if (cachedPage) {
+      return cachedPage;
+    }
+
+    // If the requested page wasn't cached, use the cached homepage.
+    const cachedHome = await cache.match("/");
+
+    if (cachedHome) {
+      return cachedHome;
+    }
+
+    // Only if absolutely nothing has been cached.
+    return offlinePage();
+  }
+}
+
+async function cacheAssets(request) {
+  const cache = await caches.open(CACHE_NAME);
+
   const cached = await cache.match(request);
 
   if (cached) {
@@ -87,6 +118,7 @@ async function cacheFirst(request, cacheName) {
   try {
     const response = await fetch(request);
 
+    // Cache successful same-origin assets.
     if (response.ok) {
       await cache.put(request, response.clone());
     }
@@ -100,49 +132,86 @@ async function cacheFirst(request, cacheName) {
   }
 }
 
-async function networkFirst(request, cacheName) {
-  const cache = await caches.open(cacheName);
-
-  try {
-    const response = await fetch(request);
-
-    if (response.ok) {
-      await cache.put(request, response.clone());
+function offlinePage() {
+  return new Response(
+    `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0E4001">
+  <title>Brass - Offline</title>
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    return response;
-  } catch {
-    const cached = await cache.match(request);
-
-    if (cached) {
-      return cached;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #F4F2DD;
+      color: #0E4001;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
-    // For a completely new offline navigation, fall back
-    // to the cached homepage.
-    if (request.mode === "navigate") {
-      const home = await caches.match("/");
-      if (home) {
-        return home;
-      }
+    .container {
+      max-width: 420px;
     }
 
-    return new Response(
-      `
-        <!doctype html>
-        <html>
-          <body style="font-family: sans-serif; padding: 40px;">
-            <h1>You're offline</h1>
-            <p>Please reconnect to continue shopping.</p>
-          </body>
-        </html>
-      `,
-      {
-        status: 503,
-        headers: {
-          "Content-Type": "text/html",
-        },
-      }
-    );
-  }
+    .mark {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid #E4E198;
+      background: #0E4001;
+      color: #E4E198;
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-style: italic;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    p {
+      margin-top: 14px;
+      color: rgba(14, 64, 1, 0.65);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="mark">B</div>
+    <h1>You're offline</h1>
+    <p>
+      Your connection is unavailable right now.
+      Previously visited Brass pages will remain available
+      when cached.
+    </p>
+  </main>
+</body>
+</html>`,
+    {
+      status: 503,
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+      },
+    }
+  );
 }

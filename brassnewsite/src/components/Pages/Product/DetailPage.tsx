@@ -26,7 +26,7 @@ const DetailPage = ({
   similarProduct?: Product[];
 }) => {
   /* =====================================================
-     STATE
+    STATE
   ===================================================== */
 
   const [variant, setVariant] = useState(0);
@@ -699,7 +699,11 @@ const DetailPage = ({
               {/* Purchase buttons */}
 
               <div className="mt-8 space-y-3">
-                <ProductButton />
+                <ProductButton
+                  productId={String(product?.Productid)}
+                  capacity={Number(variantActive?.capacity)}
+                  color={String(variantActive?.color)}
+                />
 
                 <button
                   type="button"
@@ -1329,11 +1333,7 @@ const DetailPage = ({
               px-7
               transition-all
               duration-500
-              ${
-                showCare
-                  ? "max-h-150 pb-7 opacity-100"
-                  : "max-h-0 opacity-0"
-              }
+              ${showCare ? "max-h-150 pb-7 opacity-100" : "max-h-0 opacity-0"}
             `}
           >
             {product?.details?.care?.map((care, index) => (

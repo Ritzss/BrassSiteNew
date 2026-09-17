@@ -36,10 +36,10 @@
     /* Pure Brass Bottle */
     /* width: 376px; */
     /* height: 154px; */
+    /* font-size: 64px; */
     font-family: "Inria Serif";
     font-style: normal;
     font-weight: 400;
-    /* font-size: 64px; */
     line-height: 20px;
   }
 
@@ -71,10 +71,10 @@
     /* Pure Brass Bottle */
     /* width: 376px; */
     /* height: 154px; */
+    /* font-size: 64px; */
     font-family: "Inria Serif";
     font-style: normal;
     font-weight: 400;
-    /* font-size: 64px; */
     line-height: 77px;
   }
 
@@ -148,8 +148,8 @@ body {
 }
 
 .pipeItem {
-  flex-shrink: 0;
   /* border-radius: 10%; */
+  flex-shrink: 0;
 }
 
 @keyframes slide {

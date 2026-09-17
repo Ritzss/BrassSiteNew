@@ -45,7 +45,7 @@ export default function MobileBottomNav() {
     <nav
       aria-label="Mobile navigation"
       className="
-        fixed inset-x-0 bottom-0 z-[9999]
+        fixed inset-x-0 bottom-0 z-9999
         border-t border-[#E4E198]/20
         bg-[#0E4001]/95
         backdrop-blur-xl
@@ -69,7 +69,7 @@ export default function MobileBottomNav() {
               key={item.href}
               href={item.href}
               className={`
-                flex min-w-[58px] flex-col items-center justify-center
+                flex min-w-14.5 flex-col items-center justify-center
                 gap-1 rounded-2xl px-2 py-1.5
                 transition-all duration-200
                 ${
