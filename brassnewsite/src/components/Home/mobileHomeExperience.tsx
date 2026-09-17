@@ -329,21 +329,7 @@ export default function MobileHomeExperience() {
 
                   {/* Category */}
 
-                  <div
-                    className="
-                        absolute
-                        left-4
-                        top-4
-                        rounded-full
-                        bg-[#F7F5EC]/65 text-[#0E4001]
-                        px-3
-                        py-2
-                        text-[7px]
-                        uppercase
-                        tracking-[0.16em]
-                        backdrop-blur-md
-                      "
-                  >
+                  <div className=" absolute left-4 top-4 rounded-full bg-[#F7F5EC]/65 text-[#0E4001] px-3 py-2 text-[7px] uppercase tracking-[0.16em] backdrop-blur-md">
                     {product?.category || "Brassware"}
                   </div>
 
@@ -356,58 +342,21 @@ export default function MobileHomeExperience() {
                       event.preventDefault();
                       event.stopPropagation();
                     }}
-                    className="
-                        absolute
-                        right-4
-                        top-4
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-[#F7F5EC]/60 text-[#0E4001]
-                     
-                        backdrop-blur-md
-                      "
+                    className=" absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#F7F5EC]/60 text-[#0E4001] backdrop-blur-md"
                   >
                     <FiBookmark size={15} />
                   </button>
 
                   {/* Product information */}
 
-                  <div
-                    className="
-                        absolute
-                        inset-x-0
-                        bottom-0
-                        p-5
-                        text-white
-                      "
-                  >
+                  <div className=" absolute inset-x-0 bottom-0 p-5 text-white">
                     <div className="flex items-end justify-between gap-4">
                       <div className="min-w-0">
-                        <h2
-                          className="
-                              truncate
-                              font-serif
-                              text-[26px]
-                              italic
-                              leading-none
-                            "
-                        >
+                        <h2 className=" truncate font-serif text-[26px] italic leading-none ">
                           {product?.name}
                         </h2>
 
-                        <p
-                          className="
-                              mt-2
-                              text-[8px]
-                              uppercase
-                              tracking-[0.15em]
-                              text-white/60
-                            "
-                        >
+                        <p className=" mt-2 text-[8px] uppercase tracking-[0.15em] text-white/60">
                           {capacity ? `${capacity} ml` : "Handcrafted Brass"}
                         </p>
                       </div>
