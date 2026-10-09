@@ -305,27 +305,13 @@ export default function MobileHomeExperience() {
                     alt={product?.name || "Brass product"}
                     fill
                     sizes="100vw"
-                    className="
-                        object-cover
-                        transition-transform
-                        duration-700
-                        group-hover:scale-[1.03]
-                      "
+                    className=" object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     priority={index < 2}
                   />
 
                   {/* Subtle image overlay */}
 
-                  <div
-                    className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/75
-                        via-black/5
-                        to-transparent
-                      "
-                  />
+                  <div className=" absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
 
                   {/* Category */}
 
